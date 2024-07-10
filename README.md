@@ -28,4 +28,4 @@
 
 ## 🗝️ Vercel AI SDK
 1. Crea un archivo de variables de entorno con el comando `touch .env.local`
-2. Dentro coloca la variable *GROQ_API_KEY*, esta variable la puedes conseguir contactando con alguno de los demás miembros del equipo o puedes crear la tuya desde el dashboard de open ia [aquí](https://platform.openai.com/api-keys).
+2. Dentro coloca la variable *GROQ_API_KEY*, esta variable la puedes conseguir contactando con alguno de los miembros del equipo o puedes crear la tuya desde el dashboard de open ia [aquí](https://platform.openai.com/api-keys).
