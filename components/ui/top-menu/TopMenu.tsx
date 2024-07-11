@@ -1,15 +1,10 @@
 import Image from 'next/image'
-import { ThemeModeToggle } from '../theme-mode/ThemeMode'
+import { ModeToggle } from '../theme-mode/ThemeMode'
 
 
 export const TopMenu = () => {
 	return (
-		// <nav >
-		// 	<div>
-		// 		<h1>Land X</h1>
-		// 	</div>
-		// </nav>
-		<nav className="bg-white border-b border-gray-200 fixed z-30 w-full dark:bg-slate-900 dark:border-slate-700">
+		<nav className="bg-background border-b border-border fixed z-30 w-full dark:bg-background dark:border-border">
 			<div className="px-3 py-3 lg:px-5 lg:pl-3">
 				<div className="flex items-center justify-between">
 					<div className="flex items-center justify-start">
@@ -30,12 +25,9 @@ export const TopMenu = () => {
 							</span>
 						</a>
 					</div>
-					<div className="flex items-center">
-						{/* User Avatar */}
-						{/* <div className="bg-blue-500 text-white p-2 rounded-full w-12 h-12 flex items-center justify-center">
-                FH
-						</div> */}
-						<ThemeModeToggle />
+					<div className="">
+						{/* Theme Mode Toggle */}
+						<ModeToggle />
 					</div>
 				</div>
 			</div>
