@@ -1,5 +1,5 @@
 import { openai, createOpenAI } from "@ai-sdk/openai";
-import { streamText } from "ai";
+import { streamText, generateText } from "ai";
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
@@ -13,11 +13,14 @@ const groq = createOpenAI({
 export async function POST(req: Request) {
   const { messages } = await req.json();
 
-  const result = await streamText({
+  const result = await generateText({
     // model: openai("gpt-4-turbo"),
     model: groq('llama3-8b-8192'),
+    // system: "Como queremos que se comporte el modelo",
     messages,
   });
 
-  return result.toAIStreamResponse();
+
+  console.log(result.text);
+  return Response.json(result.text);
 }
