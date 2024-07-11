@@ -2,7 +2,7 @@ import { openai, createOpenAI } from "@ai-sdk/openai";
 import { streamText, generateText } from "ai";
 
 // Allow streaming responses up to 30 seconds
-export const maxDuration = 30;
+export const maxDuration = 30
 
 // Modelo gratuito
 const groq = createOpenAI({
@@ -11,7 +11,7 @@ const groq = createOpenAI({
 });
 
 export async function POST(req: Request) {
-  const { messages } = await req.json();
+	const { messages } = await req.json()
 
   const result = await generateText({
     // model: openai("gpt-4-turbo"),
@@ -19,7 +19,6 @@ export async function POST(req: Request) {
     // system: "Como queremos que se comporte el modelo",
     messages,
   });
-
 
   console.log(result.text);
   return Response.json(result.text);
