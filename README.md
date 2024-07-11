@@ -24,6 +24,7 @@
 ## 💡 Recuerda
 - Sincronizar tu Fork con el Repositorio Original: (Mantén tu fork actualizado)
   - ```git pull upstream master```
+- Usamos PNPM
 
 
 ## 🗝️ Vercel AI SDK
