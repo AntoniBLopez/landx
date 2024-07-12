@@ -2,32 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background: 273 100% 95%;
+  --foreground: 273 5% 0%;
+  --card: 273 50% 90%;
+  --card-foreground: 273 5% 10%;
+  --popover: 273 100% 95%;
+  --popover-foreground: 273 100% 0%;
+  --primary: 273 100% 88%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 273 30% 70%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: 235 30% 85%;
+  --muted-foreground: 273 5% 35%;
+  --accent: 235 30% 80%;
+  --accent-foreground: 273 5% 10%;
+  --bg-accent: 0 0 0;
+  --destructive: 0 100% 30%;
+  --destructive-foreground: 273 5% 90%;
+  --border: 273 30% 50%;
+  --input: 273 30% 18%;
+  --ring: 273 100% 88%;
+  --radius: 0.5rem;
+}
+.dark  {
+  --background: 273 50% 5%;
+  --foreground: 273 5% 90%;
+  --card: 273 50% 0%;
+  --card-foreground: 273 5% 90%;
+  --popover: 273 50% 5%;
+  --popover-foreground: 273 5% 90%;
+  --primary: 273 100% 88%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 273 30% 10%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 235 30% 15%;
+  --muted-foreground: 273 5% 60%;
+  --accent: 235 30% 15%;
+  --accent-foreground: 273 5% 90%;
+  --destructive: 0 100% 30%;
+  --destructive-foreground: 273 5% 90%;
+  --border: 273 30% 18%;
+  --input: 273 30% 18%;
+  --ring: 273 100% 88%;
+  --radius: 0.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+}
+
+  @layer base {
+    * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-background text-foreground;
+    }
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  h1 {
+    font-size: 2.25rem/* 36px */;
+    line-height: 2.5rem/* 40px */;
+    font-weight: 700;
   }
-}
