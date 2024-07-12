@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 		template: '%s | LandX',
 		default: 'LandX',
 	},
-	description: 'Crea tu landing page con AI',
+	description: 'Design your own Landing page with AI'
 }
 
 export default function RootLayout({

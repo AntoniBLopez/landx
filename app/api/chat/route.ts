@@ -17,7 +17,7 @@ export async function POST(req: Request) {
 	const result = await streamText({
 		// model: openai("gpt-4-turbo"),
 		model: groq('llama3-8b-8192'),
-		// system: "Como queremos que se comporte el modelo",
+		system: 'Create a landing page, make sure its unique and non-repetitive, follow the user vision and requirements, and respond purely with code, no additive text, no explanations, only the code.',
 		messages,
 	})
 
