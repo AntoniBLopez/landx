@@ -13,13 +13,16 @@ const groq = createOpenAI({
 export async function POST(req: Request) {
 	const { messages } = await req.json()
 
-  const result = await generateText({
+  // const result = await generateText({
+  const result = await streamText({
     // model: openai("gpt-4-turbo"),
     model: groq('llama3-8b-8192'),
     // system: "Como queremos que se comporte el modelo",
     messages,
   });
 
-  console.log(result.text);
-  return Response.json(result.text);
+  // console.log(result.text);
+  // return Response.json(result.text);
+
+  return result.toAIStreamResponse()
 }
