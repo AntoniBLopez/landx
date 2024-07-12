@@ -2,7 +2,7 @@ import { Logo } from '../logo'
 import { ProfileTabButton } from '../profile-tab-button/ProfileTabButton'
 import { ThemeModeToggle } from '../theme-mode/ThemeMode'
 
-export const TopMenu = () => {
+export const Header = () => {
 
 	return (
 		<nav className="border-gray-200 fixed z-30 w-full bg-background pb-4">

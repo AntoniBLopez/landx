@@ -1,6 +1,5 @@
 'use client'
 
-import { TopMenu } from '@/components/ui/header/Header'
 import { WobbleCard } from '@/components/ui/wobble-card'
 import { useChat } from 'ai/react'
 
