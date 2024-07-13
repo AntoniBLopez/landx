@@ -176,14 +176,16 @@ export function PlaceholdersAndVanishInput({
     vanishAndSubmit();
     onSubmit && onSubmit(e);
   };
+  
   return (
     <form
       className={cn(
-        "w-full relative max-w-xl mx-auto bg-white/40 dark:bg-zinc-800/10 h-12 rounded-full overflow-hidden shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200",
-        value && "bg-gray-50"
+        "w-full relative max-w-xl mx-auto bg-white/10 dark:bg-zinc-800/10 h-12 rounded-full overflow-hidden shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200",
+        value && "bg-gray-50/20"
       )}
       onSubmit={handleSubmit}
     >
+
       <canvas
         className={cn(
           "absolute pointer-events-none  text-base transform scale-50 top-[20%] left-2 sm:left-8 origin-top-left filter invert dark:invert-0 pr-20",
@@ -191,6 +193,7 @@ export function PlaceholdersAndVanishInput({
         )}
         ref={canvasRef}
       />
+
       <input
         onChange={(e) => {
           if (!animating) {
@@ -211,7 +214,7 @@ export function PlaceholdersAndVanishInput({
       <button
         disabled={!value}
         type="submit"
-        className="absolute right-2 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full disabled:bg-gray-100/40 bg-black dark:bg-zinc-900/40 dark:disabled:bg-zinc-800/10 transition duration-200 flex items-center justify-center"
+        className="absolute right-2 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full disabled:bg-gray-100/40 bg-black/90 dark:bg-zinc-900/40 dark:disabled:bg-zinc-800/10 transition duration-200 flex items-center justify-center"
       >
         <motion.svg
           xmlns="http://www.w3.org/2000/svg"
