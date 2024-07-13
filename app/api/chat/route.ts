@@ -1,8 +1,5 @@
+import { generateText } from 'ai'
 import { createOpenAI } from '@ai-sdk/openai'
-import { streamText } from 'ai'
-
-// Allow streaming responses up to 30 seconds
-export const maxDuration = 30
 
 // Modelo gratuito
 const groq = createOpenAI({
@@ -11,21 +8,14 @@ const groq = createOpenAI({
 })
 
 export async function POST(req: Request) {
-	const { messages } = await req.json()
+	const { prompt }: { prompt: string } = await req.json()
 
-	// const result = await generateText({
-	const result = await streamText({
-		// model: openai("gpt-4-turbo"),
+	const { text } = await generateText({
+		// model: openai('gpt-4'), para usar -> import { openai } from '@ai-sdk/openai'
 		model: groq('llama3-8b-8192'),
-		system: 'Create a landing page, make sure its unique and non-repetitive, follow the user vision and requirements, and respond purely with code, no additive text, no explanations, only the code.',
-		messages,
+		system: 'You are a helpful assistant.',
+		prompt,
 	})
 
-	// console.log(result.text);
-	// return Response.json(result.text);
-
-  // console.log(result.text);
-  // return Response.json(result.text);
-
-  return result.toAIStreamResponse()
+	return Response.json({ text })
 }

@@ -1,17 +1,18 @@
 'use client'
 
-import { useChat } from 'ai/react'
-import { PlaceholdersAndVanishInput } from '@/components/ui/input-vanisher'
 import { useState } from 'react'
 import { BackgroundBeams } from '@/components/ui/background-beams'
+import { PlaceholdersAndVanishInput } from '@/components/ui/input-vanisher'
 
 export default function Chat() {
 
-	const { messages, input, handleInputChange, handleSubmit } = useChat()
+	const [generation, setGeneration] = useState('')
+	const [isLoading, setIsLoading] = useState(false)
+	const [input, setInput] = useState('')
 
-    const [time, setTime] = useState(true)
+	const [time, setTime] = useState(true)
 
-    let placeholders = [
+    const placeholders = [
         'Create a neon futuristic page with Cyberpunk vibes',
         'Design a solid color E-Commerce concept',
         'Build a natura-themed welcome page',
@@ -111,30 +112,40 @@ export default function Chat() {
         'Build an interactive educational museum exhibit'
     ];    
 
+	const onSubmit = async (event: { preventDefault: () => void }) => {
+		console.log(event)
+		event.preventDefault() // Previene el comportamiento predeterminado del formulario
+		setIsLoading(true)
+
+		await fetch('/api/chat', {
+			method: 'POST',
+			body: JSON.stringify({
+				prompt: input,
+			}),
+		}).then(response => {
+			response.json().then(json => {
+				console.log(json)
+				setGeneration(json.text)
+				setIsLoading(false)
+			})
+		})
+	}
+
 	return (
 		<main className="flex w-full h-screen flex-col items-center justify-center">
-            <h1 className="floating-letters z-2 p-10">
-                <span>I</span><span>n</span><span>p</span><span>u</span><span>t</span>
-                <span className='ml-2'>y</span><span>o</span><span>u</span><span>r</span>
-                <span className='ml-2'>v</span><span>i</span><span>s</span><span>i</span><span>o</span><span>n</span><span>.</span>
-            </h1>            
-            <div className='p-5'>
-            {messages.map((m) => (
-                <div key={m.id} className="whitespace-pre-wrap">
-                    {m.role === 'user' ? 'User: ' : 'AI: '}
-                    {m.content}
-                </div>
-            ))}
-            </div>
-            <PlaceholdersAndVanishInput placeholders={placeholders} onChange={handleInputChange} onSubmit={()=>{
-                if(time) {
-                    setTime(false)
-                    handleSubmit()
-                    setTimeout(()=>{
-                        setTime(true)
-                    },3000)
-                }
-            }}></PlaceholdersAndVanishInput>
+			<h1>Input your vision.</h1>
+
+			<div className='p-10'>{isLoading ? 'Loading...' : generation}</div>
+
+			<PlaceholdersAndVanishInput placeholders={placeholders} onChange={e => setInput(e.target.value)} onSubmit={(event)=>{
+				if(time) {
+					setTime(false)
+					onSubmit(event)
+					setTimeout(()=>{
+						setTime(true)
+					},3000)
+				}
+			}}></PlaceholdersAndVanishInput>
             <BackgroundBeams />
 		</main>
 	)
