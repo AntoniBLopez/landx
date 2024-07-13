@@ -1,6 +1,7 @@
-import { Logo } from '../logo'
-import { ProfileTabButton } from '../profile-tab-button/ProfileTabButton'
-import { ThemeModeToggle } from '../theme-mode/ThemeMode'
+import Link from 'next/link'
+import { Logo } from '@/components/ui/logo'
+import { ProfileTabButton } from '@/components/ui/profile-tab-button/ProfileTabButton'
+import { ThemeModeToggle } from '@/components/ui/theme-mode/ThemeMode'
 
 export const Header = () => {
 
@@ -14,9 +15,9 @@ export const Header = () => {
 						<ThemeModeToggle />
 					</div>
 				</div>
-				<a href='/' className={'mx-auto'}>
-					<Logo></Logo>
-				</a>
+				<Link href='/' className={'mx-auto'}>
+					<Logo />
+				</Link>
 				<div className="flex items-center justify-between">
 					<div className="flex items-center">
 						{/* User Avatar */}
