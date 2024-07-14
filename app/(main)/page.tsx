@@ -54,12 +54,13 @@ export default function Chat() {
 					<div className="flex justify-center mt-5">
 						<Image
 							src="/example.png"
-							className="rounded-xl w-full sm:w-[80%] lg:w-[60%]"
+							className="rounded-xl"
 							data-aos="fade-up"
 							alt="Template"
-							width={800}
-							height={427}
-							layout="responsive"
+							width={1600}
+							height={854}
+							sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 60vw"
+							style={{ width: "100%", height: "auto" }}
 						/>
 					</div>
 				</div>

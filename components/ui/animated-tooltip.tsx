@@ -11,6 +11,12 @@ import {
 	useSpring,
 } from "framer-motion";
 
+type ImageLoaderProps = {
+	src: string;
+	width: number;
+	quality?: number;
+};
+
 export const AnimatedTooltip = ({
 	items,
 }: {
@@ -38,6 +44,9 @@ export const AnimatedTooltip = ({
 	const handleMouseMove = (event: any) => {
 		const halfWidth = event.target.offsetWidth / 2;
 		x.set(event.nativeEvent.offsetX - halfWidth); // set the x value, which is then used in transform and rotate
+	};
+	const imageLoader = ({ src, width, quality }: ImageLoaderProps): string => {
+		return `${src}?w=${width}&q=${quality || 75}`;
 	};
 
 	return (
@@ -84,7 +93,7 @@ export const AnimatedTooltip = ({
 						)}
 					</AnimatePresence>
 					<Image
-						loader={() => item.image}
+						loader={imageLoader}
 						src={item.image}
 						width={245}
 						height={245}
