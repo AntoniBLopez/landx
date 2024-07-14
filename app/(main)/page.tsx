@@ -36,7 +36,7 @@ export default function Chat() {
 						Get started!
 					</Link>
 				</div>
-				<div className="bounce">
+				<div className="bounce flex justify-center">
 					<ArrowDown />
 				</div>
 				<h2 className='mx-auto text-center w-max text-xl mt-3'>We provide you with the unique AI Tool for you to create amazing Landing page concepts!</h2>
