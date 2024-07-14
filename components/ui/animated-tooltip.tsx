@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import Link from "next/link";
+import { ImageLoaderProps } from "@/types";
 
 import {
 	motion,
@@ -10,12 +11,6 @@ import {
 	useMotionValue,
 	useSpring,
 } from "framer-motion";
-
-type ImageLoaderProps = {
-	src: string;
-	width: number;
-	quality?: number;
-};
 
 export const AnimatedTooltip = ({
 	items,
@@ -45,12 +40,9 @@ export const AnimatedTooltip = ({
 		const halfWidth = event.target.offsetWidth / 2;
 		x.set(event.nativeEvent.offsetX - halfWidth); // set the x value, which is then used in transform and rotate
 	};
-	const imageLoader = ({ src, width, quality }: ImageLoaderProps): string => {
-		return `${src}?w=${width}&q=${quality || 75}`;
-	};
 
 	// Image Loader
-	const imageLoader = ({ src ,width }: {src: string, width: number}) => {
+	const imageLoader = ({ src, width }: ImageLoaderProps) => {
 		return `${src}&s=${width}`
 	}
 
@@ -98,9 +90,9 @@ export const AnimatedTooltip = ({
 						)}
 					</AnimatePresence>
 					<Image
-						loader={() => imageLoader({src: item.image, width: 56})}
-						src={item.image} 
-						width={245} 
+						loader={() => imageLoader({ src: item.image, width: 56 })}
+						src={item.image}
+						width={245}
 						height={245}
 						onMouseMove={handleMouseMove}
 						alt={item.name}

@@ -13,10 +13,7 @@ export default [
 	{
 		rules: {
 			"react/react-in-jsx-scope": "off",
-			"eol-last": ["error", "never"],
-			semi: ["error", "never"],
 			"react/prop-types": "off",
-			"@typescript-eslint/quotes": ["error", "single"],
 			"no-trailing-spaces": "error",
 			"no-tabs": "off",
 			"@typescript-eslint/indent": ["error", "tab"],
