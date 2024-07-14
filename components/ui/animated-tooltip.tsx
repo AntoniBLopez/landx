@@ -49,11 +49,16 @@ export const AnimatedTooltip = ({
 		return `${src}?w=${width}&q=${quality || 75}`;
 	};
 
+	// Image Loader
+	const imageLoader = ({ src ,width }: {src: string, width: number}) => {
+		return `${src}&s=${width}`
+	}
+
 	return (
 		<>
 			{items.map((item) => (
 				<Link
-					className="-mr-4  relative group"
+					className="-mr-4 relative group"
 					target="_blank"
 					rel="noopener noreferrer"
 					key={item.name}
@@ -93,9 +98,9 @@ export const AnimatedTooltip = ({
 						)}
 					</AnimatePresence>
 					<Image
-						loader={imageLoader}
-						src={item.image}
-						width={245}
+						loader={() => imageLoader({src: item.image, width: 56})}
+						src={item.image} 
+						width={245} 
 						height={245}
 						onMouseMove={handleMouseMove}
 						alt={item.name}

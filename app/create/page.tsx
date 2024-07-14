@@ -1,9 +1,9 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
-import { BackgroundBeams } from "@/components/ui/background-beams";
-import { PlaceholdersAndVanishInput } from "@/components/ui/input-vanisher";
-import qualityPrompt from "@/app/create/utils/qualityPrompt";
+import { use, useEffect, useState, FormEvent } from 'react'
+import { BackgroundBeams } from '@/components/ui/background-beams'
+import { PlaceholdersAndVanishInput } from '@/components/ui/input-vanisher'
+import qualityPrompt from '@/app/create/utils/qualityPrompt'
 
 export default function Chat() {
 	const [generation, setGeneration] = useState("");

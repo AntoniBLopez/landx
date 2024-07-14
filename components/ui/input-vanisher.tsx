@@ -1,7 +1,7 @@
 "use client";
-
-import { AnimatePresence, motion } from "framer-motion";
+import { useTheme } from 'next-themes'
 import { useCallback, useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export function PlaceholdersAndVanishInput({
@@ -13,22 +13,23 @@ export function PlaceholdersAndVanishInput({
 	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }) {
-	const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
+  const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const { theme } = useTheme()
 
-	const intervalRef = useRef<NodeJS.Timeout | null>(null);
-	const startAnimation = () => {
-		intervalRef.current = setInterval(() => {
-			setCurrentPlaceholder(Math.floor(Math.random() * placeholders.length));
-		}, 3000);
-	};
-	const handleVisibilityChange = () => {
-		if (document.visibilityState !== "visible" && intervalRef.current) {
-			clearInterval(intervalRef.current); // Clear the interval when the tab is not visible
-			intervalRef.current = null;
-		} else if (document.visibilityState === "visible") {
-			startAnimation(); // Restart the interval when the tab becomes visible
-		}
-	};
+  const startAnimation = () => {
+    intervalRef.current = setInterval(() => {
+      setCurrentPlaceholder(Math.floor(Math.random() * placeholders.length));
+    }, 3000);
+  };
+  const handleVisibilityChange = () => {
+    if (document.visibilityState !== "visible" && intervalRef.current) {
+      clearInterval(intervalRef.current); // Clear the interval when the tab is not visible
+      intervalRef.current = null;
+    } else if (document.visibilityState === "visible") {
+      startAnimation(); // Restart the interval when the tab becomes visible
+    }
+  };
 
 	useEffect(() => {
 		setCurrentPlaceholder(Math.floor(Math.random() * placeholders.length));
@@ -171,20 +172,20 @@ export function PlaceholdersAndVanishInput({
 		}
 	};
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		vanishAndSubmit();
-		onSubmit && onSubmit(e);
-	};
-
-	return (
-		<form
-			className={cn(
-				"w-full relative max-w-xl mx-auto bg-white/10 dark:bg-zinc-800/10 h-12 rounded-full overflow-hidden shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200",
-				value && "bg-gray-50/20"
-			)}
-			onSubmit={handleSubmit}
-		>
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    vanishAndSubmit();
+    onSubmit && onSubmit(e);
+  };
+  
+  return (
+    <form
+      className={cn(
+        "w-full relative max-w-xl mx-auto bg-white/40 dark:bg-zinc-800/40 h-12 rounded-full overflow-hidden shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200",
+        value && "bg-gray-50/20"
+      )}
+      onSubmit={handleSubmit}
+    >
 			<canvas
 				className={cn(
 					"absolute pointer-events-none  text-base transform scale-50 top-[20%] left-2 sm:left-8 origin-top-left filter invert dark:invert-0 pr-20",
@@ -210,42 +211,42 @@ export function PlaceholdersAndVanishInput({
 				)}
 			/>
 
-			<button
-				disabled={!value}
-				type="submit"
-				className="absolute right-2 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full disabled:bg-gray-100/40 bg-black/90 dark:bg-zinc-900/40 dark:disabled:bg-zinc-800/10 transition duration-200 flex items-center justify-center"
-			>
-				<motion.svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					strokeWidth="2"
-					strokeLinecap="round"
-					strokeLinejoin="round"
-					className="text-gray-300 h-4 w-4"
-				>
-					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-					<motion.path
-						d="M5 12l14 0"
-						initial={{
-							strokeDasharray: "50%",
-							strokeDashoffset: "50%",
-						}}
-						animate={{
-							strokeDashoffset: value ? 0 : "50%",
-						}}
-						transition={{
-							duration: 0.3,
-							ease: "linear",
-						}}
-					/>
-					<path d="M13 18l6 -6" />
-					<path d="M13 6l6 6" />
-				</motion.svg>
-			</button>
+      <button
+        disabled={!value}
+        type="submit"
+        className="absolute right-2 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full disabled:bg-gray-100/40 bg-black/90 dark:bg-zinc-900/40 dark:disabled:bg-zinc-800/10 transition duration-200 flex items-center justify-center"
+      >
+        <motion.svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={`${theme === "dark" ? "text-gray-300" : "text-gray-500"}  h-4 w-4`}
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <motion.path
+            d="M5 12l14 0"
+            initial={{
+              strokeDasharray: "50%",
+              strokeDashoffset: "50%",
+            }}
+            animate={{
+              strokeDashoffset: value ? 0 : "50%",
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "linear",
+            }}
+          />
+          <path d="M13 18l6 -6" />
+          <path d="M13 6l6 6" />
+        </motion.svg>
+      </button>
 
 			<div className="absolute inset-0 flex items-center rounded-full pointer-events-none">
 				<AnimatePresence mode="wait">

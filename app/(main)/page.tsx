@@ -43,7 +43,7 @@ export default function Chat() {
 						Get started!
 					</Link>
 				</div>
-				<div className="bounce">
+				<div className="bounce flex justify-center">
 					<ArrowDown />
 				</div>
 				<div className="px-4">
