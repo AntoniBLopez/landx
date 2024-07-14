@@ -40,12 +40,16 @@ export const AnimatedTooltip = ({
 		x.set(event.nativeEvent.offsetX - halfWidth) // set the x value, which is then used in transform and rotate
 	}
 
+	// Image Loader
+	const imageLoader = ({ src ,width }: {src: string, width: number}) => {
+		return `${src}&s=${width}`
+	}
+
 	return (
 		<>
 			{items.map((item) => (
 				<Link
-
-					className="-mr-4  relative group"
+					className="-mr-4 relative group"
 					target="_blank"
 					rel="noopener noreferrer"
 					key={item.name}
@@ -85,7 +89,10 @@ export const AnimatedTooltip = ({
 						)}
 					</AnimatePresence>
 					<Image
-						loader={() => item.image} src={item.image} width={245} height={245}
+						loader={() => imageLoader({src: item.image, width: 56})}
+						src={item.image} 
+						width={245} 
+						height={245}
 						onMouseMove={handleMouseMove}
 						alt={item.name}
 						className="object-cover !m-0 !p-0 object-top rounded-full h-14 w-14 border-2 group-hover:scale-105 group-hover:z-30 border-white  relative transition duration-500"
