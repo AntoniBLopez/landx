@@ -1,7 +1,7 @@
-'use client'
-import Image from 'next/image'
-import React, { useState } from 'react'
-import Link from 'next/link'
+"use client";
+import Image from "next/image";
+import React, { useState } from "react";
+import Link from "next/link";
 
 import {
 	motion,
@@ -9,7 +9,13 @@ import {
 	AnimatePresence,
 	useMotionValue,
 	useSpring,
-} from 'framer-motion'
+} from "framer-motion";
+
+type ImageLoaderProps = {
+	src: string;
+	width: number;
+	quality?: number;
+};
 
 export const AnimatedTooltip = ({
 	items,
@@ -22,23 +28,26 @@ export const AnimatedTooltip = ({
 		url: string;
 	}[];
 }) => {
-	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-	const springConfig = { stiffness: 100, damping: 5 }
-	const x = useMotionValue(0) // going to set this value on mouse move
+	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+	const springConfig = { stiffness: 100, damping: 5 };
+	const x = useMotionValue(0); // going to set this value on mouse move
 	// rotate the tooltip
 	const rotate = useSpring(
 		useTransform(x, [-100, 100], [-45, 45]),
 		springConfig
-	)
+	);
 	// translate the tooltip
 	const translateX = useSpring(
 		useTransform(x, [-100, 100], [-50, 50]),
 		springConfig
-	)
+	);
 	const handleMouseMove = (event: any) => {
-		const halfWidth = event.target.offsetWidth / 2
-		x.set(event.nativeEvent.offsetX - halfWidth) // set the x value, which is then used in transform and rotate
-	}
+		const halfWidth = event.target.offsetWidth / 2;
+		x.set(event.nativeEvent.offsetX - halfWidth); // set the x value, which is then used in transform and rotate
+	};
+	const imageLoader = ({ src, width, quality }: ImageLoaderProps): string => {
+		return `${src}?w=${width}&q=${quality || 75}`;
+	};
 
 	// Image Loader
 	const imageLoader = ({ src ,width }: {src: string, width: number}) => {
@@ -66,7 +75,7 @@ export const AnimatedTooltip = ({
 									y: 0,
 									scale: 1,
 									transition: {
-										type: 'spring',
+										type: "spring",
 										stiffness: 260,
 										damping: 10,
 									},
@@ -75,7 +84,7 @@ export const AnimatedTooltip = ({
 								style={{
 									translateX: translateX,
 									rotate: rotate,
-									whiteSpace: 'nowrap',
+									whiteSpace: "nowrap",
 								}}
 								className="absolute -top-16 -left-1/2 translate-x-1/2 flex text-xs  flex-col items-center justify-center rounded-md bg-black z-50 shadow-xl px-4 py-2"
 							>
@@ -100,5 +109,5 @@ export const AnimatedTooltip = ({
 				</Link>
 			))}
 		</>
-	)
-}
+	);
+};
