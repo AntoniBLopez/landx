@@ -1,5 +1,27 @@
-const qualityPrompt = ({ input, name, email, businessName, serviceDescription, callToActionButtonName, foldersTech, mainColor, font, stack }: { input: string, name: string, email: string, businessName: string, serviceDescription: string, callToActionButtonName: string, foldersTech: string, mainColor: string, font: string, stack: string, }) => {
-  return `
+const qualityPrompt = ({
+	input,
+	name,
+	email,
+	businessName,
+	serviceDescription,
+	callToActionButtonName,
+	foldersTech,
+	mainColor,
+	font,
+	stack,
+}: {
+	input: string;
+	name: string;
+	email: string;
+	businessName: string;
+	serviceDescription: string;
+	callToActionButtonName: string;
+	foldersTech: string;
+	mainColor: string;
+	font: string;
+	stack: string;
+}) => {
+	return `
     Quiero que generes una landing page profesional y moderna para ${businessName}, un servicio que ofrece ${serviceDescription}. Necesito que la página tenga la siguiente estructura y contenido:
 
     1. **Header:**
@@ -33,7 +55,7 @@ const qualityPrompt = ({ input, name, email, businessName, serviceDescription, c
     Tecnologías preferidas: ${stack}.
 
     Ten en cuenta estas especificaciones del usuario: ${input}.
-  `
-}
+  `;
+};
 
-export default qualityPrompt
+export default qualityPrompt;
