@@ -1,6 +1,6 @@
 'use client'
 
-import { use, useEffect, useState } from 'react'
+import { use, useEffect, useState, FormEvent } from 'react'
 import { BackgroundBeams } from '@/components/ui/background-beams'
 import { PlaceholdersAndVanishInput } from '@/components/ui/input-vanisher'
 import qualityPrompt from '@/app/create/utils/qualityPrompt'
@@ -25,8 +25,7 @@ export default function Chat() {
     'Give me a random thing'
   ]
 
-  const onSubmit = async (event: { preventDefault: () => void }) => {
-    console.log(event)
+  const onSubmit = async (event: FormEvent) => {
     event.preventDefault() // Previene el comportamiento predeterminado del formulario
     setIsLoading(true)
 
@@ -42,6 +41,7 @@ export default function Chat() {
       stack: 'HTML5, CSS3 (preferentemente con Flexbox o Grid), y JavaScript (opcional). Puede usar un framework como Bootstrap si es necesario.',
       foldersTech: 'HTML para la estructura, CSS para el estilo, y JavaScript para la interactividad (si es necesario).',
     })
+
     const placeholders = [
         'Create a neon futuristic page with Cyberpunk vibes',
         'Design a solid color E-Commerce concept',
