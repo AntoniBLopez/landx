@@ -1,7 +1,7 @@
 "use client";
-
-import { AnimatePresence, motion } from "framer-motion";
+import { useTheme } from 'next-themes'
 import { useCallback, useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export function PlaceholdersAndVanishInput({
@@ -14,8 +14,9 @@ export function PlaceholdersAndVanishInput({
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }) {
   const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
-
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const { theme } = useTheme()
+
   const startAnimation = () => {
     intervalRef.current = setInterval(() => {
       setCurrentPlaceholder(Math.floor(Math.random() * placeholders.length));
@@ -180,7 +181,7 @@ export function PlaceholdersAndVanishInput({
   return (
     <form
       className={cn(
-        "w-full relative max-w-xl mx-auto bg-white/10 dark:bg-zinc-800/10 h-12 rounded-full overflow-hidden shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200",
+        "w-full relative max-w-xl mx-auto bg-white/40 dark:bg-zinc-800/40 h-12 rounded-full overflow-hidden shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200",
         value && "bg-gray-50/20"
       )}
       onSubmit={handleSubmit}
@@ -226,7 +227,7 @@ export function PlaceholdersAndVanishInput({
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="text-gray-300 h-4 w-4"
+          className={`${theme === "dark" ? "text-gray-300" : "text-gray-500"}  h-4 w-4`}
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <motion.path
