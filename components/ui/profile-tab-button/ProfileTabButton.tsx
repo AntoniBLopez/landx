@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { Moon, Sun, UserCircle } from "lucide-react";
-import { useTheme } from "next-themes";
+import { UserCircle } from "lucide-react";
+
 
 import { Button } from "@/components/ui/button";
 
@@ -18,7 +18,7 @@ export function ProfileTabButton() {
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
 				<Button variant="ghost" size="icon">
-					<UserCircle strokeWidth={.8} className="h-[1.5rem] w-[1.5rem] rotate-0 scale-90 transition-all"></UserCircle>
+					<UserCircle strokeWidth={1.5} className="h-[1.5rem] w-[1.5rem] rotate-0 scale-90 transition-all"></UserCircle>
 					<span className="sr-only">User settings</span>
 				</Button>
 			</DropdownMenuTrigger>

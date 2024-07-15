@@ -32,7 +32,7 @@ export default function MainLayout({
 						size="icon"
 						className="cursor-pointer"
 					>
-						<X strokeWidth={0.8} />
+						<X strokeWidth={1} />
 					</Button>
 				</header>
 			</aside>

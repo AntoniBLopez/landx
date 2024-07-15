@@ -227,14 +227,14 @@ export function PlaceholdersAndVanishInput({
 				className="cursor-pointer absolute right-10 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full bg-gray-100/40  dark:bg-zinc-900/40 dark:disabled:bg-zinc-800/10 transition duration-200 flex items-center justify-center"
 				onClick={handleOpenSettings}
 			>
-				<Settings strokeWidth={.8} />
+				<Settings strokeWidth={1} />
 			</button>
 
 			<button
 				type="submit"
 				className="cursor-pointer absolute right-2 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full bg-gray-100/40  dark:bg-zinc-900/40 dark:disabled:bg-zinc-800/10 transition duration-200 flex items-center justify-center"
 			>
-				<ChevronRight strokeWidth={.8} />
+				<ChevronRight strokeWidth={1} />
 			</button>
 
 			<div className="absolute inset-0 flex items-center rounded-full pointer-events-none">
