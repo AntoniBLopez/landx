@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 import { Logo } from "@/components/ui/logo";
 import { ProfileTabButton } from "@/components/ui/profile-tab-button/ProfileTabButton";
