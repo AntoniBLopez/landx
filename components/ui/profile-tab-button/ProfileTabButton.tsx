@@ -18,7 +18,7 @@ export function ProfileTabButton() {
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
 				<Button variant="ghost" size="icon">
-					<UserCircle className="h-[1.5rem] w-[1.5rem] rotate-0 scale-90 transition-all"></UserCircle>
+					<UserCircle strokeWidth={.8} className="h-[1.5rem] w-[1.5rem] rotate-0 scale-90 transition-all"></UserCircle>
 					<span className="sr-only">User settings</span>
 				</Button>
 			</DropdownMenuTrigger>
