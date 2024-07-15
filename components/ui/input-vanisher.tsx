@@ -3,6 +3,8 @@ import { useTheme } from "next-themes";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { ChevronRight, Settings } from 'lucide-react';
+
 
 export function PlaceholdersAndVanishInput({
 	placeholders,
@@ -15,13 +17,14 @@ export function PlaceholdersAndVanishInput({
 }) {
 	const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
 	const intervalRef = useRef<NodeJS.Timeout | null>(null);
-	const { theme } = useTheme();
+
 
 	const startAnimation = () => {
 		intervalRef.current = setInterval(() => {
 			setCurrentPlaceholder(Math.floor(Math.random() * placeholders.length));
 		}, 3000);
 	};
+
 	const handleVisibilityChange = () => {
 		if (document.visibilityState !== "visible" && intervalRef.current) {
 			clearInterval(intervalRef.current); // Clear the interval when the tab is not visible
@@ -78,7 +81,7 @@ export function PlaceholdersAndVanishInput({
 			// eslint-disable-next-line prefer-const
 			let i = 4 * t * 800;
 			for (let n = 0; n < 800; n++) {
-			// eslint-disable-next-line prefer-const
+				// eslint-disable-next-line prefer-const
 				let e = i + 4 * n;
 				if (
 					pixelData[e] !== 0 &&
@@ -218,40 +221,17 @@ export function PlaceholdersAndVanishInput({
 			<button
 				disabled={!value}
 				type="submit"
-				className="absolute right-2 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full disabled:bg-gray-100/40 bg-black/90 dark:bg-zinc-900/40 dark:disabled:bg-zinc-800/10 transition duration-200 flex items-center justify-center"
+				className="cursor-pointer absolute right-10 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full disabled:bg-gray-100/40 bg-black/90 dark:bg-zinc-900/40 dark:disabled:bg-zinc-800/10 transition duration-200 flex items-center justify-center"
 			>
-				<motion.svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					strokeWidth="2"
-					strokeLinecap="round"
-					strokeLinejoin="round"
-					className={`${
-						theme === "dark" ? "text-gray-300" : "text-gray-500"
-					}  h-4 w-4`}
-				>
-					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-					<motion.path
-						d="M5 12l14 0"
-						initial={{
-							strokeDasharray: "50%",
-							strokeDashoffset: "50%",
-						}}
-						animate={{
-							strokeDashoffset: value ? 0 : "50%",
-						}}
-						transition={{
-							duration: 0.3,
-							ease: "linear",
-						}}
-					/>
-					<path d="M13 18l6 -6" />
-					<path d="M13 6l6 6" />
-				</motion.svg>
+				<Settings strokeWidth={.8} />
+			</button>
+
+			<button
+				disabled={!value}
+				type="submit"
+				className="cursor-pointer absolute right-2 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full disabled:bg-gray-100/40 bg-black/90 dark:bg-zinc-900/40 dark:disabled:bg-zinc-800/10 transition duration-200 flex items-center justify-center"
+			>
+				<ChevronRight strokeWidth={.8} />
 			</button>
 
 			<div className="absolute inset-0 flex items-center rounded-full pointer-events-none">
