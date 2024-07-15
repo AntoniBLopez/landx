@@ -23,7 +23,7 @@ export default function MainLayout({
 				{children}
 			</div>
 
-			<aside className={`relative min-w-[380px] border-l border-l-[#000000b3] dark:border-l-gray-400 transition-[margin] ${isSideMenuOpen ? "mr-0" : "mr-[-380px]"}`}>
+			<aside className={`z-50 h-screen md:relative min-w-full md:min-w-[380px] border-l border-l-[#000000b3] dark:border-l-gray-400 transition-[margin] ${isSideMenuOpen ? "absolute bg-background md:mr-0" : "relative mr-[-1000px] md:mr-[-380px]"}`}>
 				<header className="h-[83px] px-5 flex justify-between items-center border-b border-b-[#000000b3] dark:border-b-gray-400">
 					<h2 className="font-bold text-sm">Configure your prompt</h2>
 					<Button
