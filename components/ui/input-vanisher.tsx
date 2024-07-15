@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { ChevronRight, Settings, Settings2 } from "lucide-react";
+import { ChevronRight, Settings2 } from "lucide-react";
 import { useUIStore } from "@/store/ui-store";
 
 export function PlaceholdersAndVanishInput({
