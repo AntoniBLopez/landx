@@ -1,9 +1,9 @@
-import { Logo } from '../logo'
-import { ProfileTabButton } from '../profile-tab-button/ProfileTabButton'
-import { ThemeModeToggle } from '../theme-mode/ThemeMode'
+import Link from "next/link";
+import { Logo } from "@/components/ui/logo";
+import { ProfileTabButton } from "@/components/ui/profile-tab-button/ProfileTabButton";
+import { ThemeModeToggle } from "@/components/ui/theme-mode/ThemeMode";
 
 export const Header = () => {
-
 	return (
 		<nav className="border-gray-200 fixed z-30 w-full bg-background pb-4">
 			<div className="px-3 py-3 lg:px-5 lg:pl-5 flex">
@@ -14,9 +14,9 @@ export const Header = () => {
 						<ThemeModeToggle />
 					</div>
 				</div>
-				<a href='/' className={'mx-auto'}>
-					<Logo></Logo>
-				</a>
+				<Link href="/" className={"mx-auto"}>
+					<Logo />
+				</Link>
 				<div className="flex items-center justify-between">
 					<div className="flex items-center">
 						{/* User Avatar */}
@@ -25,7 +25,7 @@ export const Header = () => {
 					</div>
 				</div>
 			</div>
-			<div className='h-[1px] mx-auto bg-black/70 dark:bg-gray-400 w-[80vw] mt-2'></div>
+			<div className="h-[1px] mx-auto bg-black/70 dark:bg-gray-400 w-[80vw] mt-2"></div>
 		</nav>
-	)
-}
+	);
+};

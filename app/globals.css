@@ -3,176 +3,235 @@
 @tailwind utilities;
 
 @layer base {
-
-:root {
-  --background: 273 100% 95%;
-  --foreground: 273 5% 0%;
-  --card: 273 50% 90%;
-  --card-foreground: 273 5% 10%;
-  --popover: 273 100% 95%;
-  --popover-foreground: 273 100% 0%;
-  --primary: 273 100% 88%;
-  --primary-foreground: 0 0% 0%;
-  --secondary: 273 30% 70%;
-  --secondary-foreground: 0 0% 0%;
-  --muted: 235 30% 85%;
-  --muted-foreground: 273 5% 35%;
-  --accent: 235 30% 80%;
-  --accent-foreground: 273 5% 10%;
-  --bg-accent: 0 0 0;
-  --destructive: 0 100% 30%;
-  --destructive-foreground: 273 5% 90%;
-  --border: 273 30% 50%;
-  --input: 273 30% 18%;
-  --ring: 273 100% 88%;
-  --radius: 0.5rem;
-}
-.dark  {
-  --background: 273 50% 5%;
-  --foreground: 273 5% 90%;
-  --card: 273 50% 0%;
-  --card-foreground: 273 5% 90%;
-  --popover: 273 50% 5%;
-  --popover-foreground: 273 5% 90%;
-  --primary: 273 100% 88%;
-  --primary-foreground: 0 0% 0%;
-  --secondary: 273 30% 10%;
-  --secondary-foreground: 0 0% 100%;
-  --muted: 235 30% 15%;
-  --muted-foreground: 273 5% 60%;
-  --accent: 235 30% 15%;
-  --accent-foreground: 273 5% 90%;
-  --destructive: 0 100% 30%;
-  --destructive-foreground: 273 5% 90%;
-  --border: 273 30% 18%;
-  --input: 273 30% 18%;
-  --ring: 273 100% 88%;
-  --radius: 0.5rem;
-}
-
+	:root {
+		--background: 273 100% 95%;
+		--foreground: 273 5% 0%;
+		--card: 273 50% 90%;
+		--card-foreground: 273 5% 10%;
+		--popover: 273 100% 95%;
+		--popover-foreground: 273 100% 0%;
+		--primary: 273 100% 88%;
+		--primary-foreground: 0 0% 0%;
+		--secondary: 273 30% 70%;
+		--secondary-foreground: 0 0% 0%;
+		--muted: 235 30% 85%;
+		--muted-foreground: 273 5% 35%;
+		--accent: 235 30% 80%;
+		--accent-foreground: 273 5% 10%;
+		--bg-accent: 0 0 0;
+		--destructive: 0 100% 30%;
+		--destructive-foreground: 273 5% 90%;
+		--border: 273 30% 50%;
+		--input: 273 30% 18%;
+		--ring: 273 100% 88%;
+		--radius: 0.5rem;
+	}
+	.dark {
+		--background: 273 50% 5%;
+		--foreground: 273 5% 90%;
+		--card: 273 50% 0%;
+		--card-foreground: 273 5% 90%;
+		--popover: 273 50% 5%;
+		--popover-foreground: 273 5% 90%;
+		--primary: 273 100% 88%;
+		--primary-foreground: 0 0% 0%;
+		--secondary: 273 30% 10%;
+		--secondary-foreground: 0 0% 100%;
+		--muted: 235 30% 15%;
+		--muted-foreground: 273 5% 60%;
+		--accent: 235 30% 15%;
+		--accent-foreground: 273 5% 90%;
+		--destructive: 0 100% 30%;
+		--destructive-foreground: 273 5% 90%;
+		--border: 273 30% 18%;
+		--input: 273 30% 18%;
+		--ring: 273 100% 88%;
+		--radius: 0.5rem;
+	}
 }
 
-  @layer base {
-    * {
-      @apply border-border;
-    }
-    body {
-      @apply bg-background text-foreground;
-    }
-  }
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+}
 
-  h1 {
-    font-size: 2.25rem/* 36px */;
-    line-height: 2.5rem/* 40px */;
-    font-weight: 700;
-  }
+h1 {
+	font-size: 2.25rem /* 36px */;
+	line-height: 2.5rem /* 40px */;
+	font-weight: 700;
+}
 
-  /* styles.css */
+/* styles.css */
 @keyframes gradientText {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .gradient-text {
-  background: linear-gradient(270deg, #c9c9c915, #f1f1ff, #d7d7d74b, #ffffff);
-  background-size: 400% 400%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientText 5s ease infinite;
+	background: linear-gradient(270deg, #c9c9c915, #f1f1ff, #d7d7d74b, #ffffff);
+	background-size: 400% 400%;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: gradientText 5s ease infinite;
 }
 
 .gradient-border {
-  background: linear-gradient(270deg, #ff00cc, #3333ff, #ffd900, #ff0066);
-  background-size: 400% 400%;
-  animation: gradientText 5s ease infinite;
-  border-image: linear-gradient(270deg, #ffe7fa, #e0e0ff, #fff8d2, #ffebf3) 4;
+	background: linear-gradient(
+		270deg,
+		#ff00cc,
+		#3333ff,
+		#3dc6a6,
+		#3333ff,
+		#ff0066
+	);
+	background-size: 400% 400%;
+	animation: gradientText 5s ease infinite;
+	border-image: linear-gradient(270deg, #ffe7fa, #e0e0ff, #fff8d2, #ffebf3) 4;
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-30px);
-  }
-  60% {
-    transform: translateY(-15px);
-  }
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-30px);
+	}
+	60% {
+		transform: translateY(-15px);
+	}
 }
 
 .bounce {
-  animation: bounce 2s infinite;
+	animation: bounce 2s infinite;
 }
 
 .floating-letters {
-  display: flex;
-  justify-content: center;
-  font-size: 2rem;
-  position: relative;
-  overflow: hidden;
+	display: flex;
+	justify-content: center;
+	font-size: 2rem;
+	position: relative;
+	overflow: hidden;
 }
 
 .floating-letters span {
-  display: inline-block;
-  position: relative;
-  animation: float 6s infinite;
-  transform-origin: center;
+	display: inline-block;
+	position: relative;
+	animation: float 6s infinite;
+	transform-origin: center;
 }
 
 @keyframes float {
-  0% {
-      transform: translate3d(0, 0, 0) rotate(0deg);
-      text-shadow: 0 0 4px white;
-  }
-  25% {
-      transform: translate3d(-3px, -4px, 0) rotate(3deg);
-      text-shadow: 0 0 7px rgba(28, 22, 33, 0.489);
-  }
-  50% {
-      transform: translate3d(4px, 3px, 0) rotate(-5deg);
-      text-shadow: 0 0 12px white;
-  }
-  75% {
-      transform: translate3d(-3px, 1px, 0) rotate(3deg);
-      text-shadow: 0 0 7px rgba(28, 22, 33, 0.489);
-  }
-  100% {
-      transform: translate3d(0, 0, 0) rotate(0deg);
-      text-shadow: 0 0 4px white;
-  }
+	0% {
+		transform: translate3d(0, 0, 0) rotate(0deg);
+		text-shadow: 0 0 4px white;
+	}
+	25% {
+		transform: translate3d(-3px, -4px, 0) rotate(3deg);
+		text-shadow: 0 0 7px rgba(28, 22, 33, 0.489);
+	}
+	50% {
+		transform: translate3d(4px, 3px, 0) rotate(-5deg);
+		text-shadow: 0 0 12px white;
+	}
+	75% {
+		transform: translate3d(-3px, 1px, 0) rotate(3deg);
+		text-shadow: 0 0 7px rgba(28, 22, 33, 0.489);
+	}
+	100% {
+		transform: translate3d(0, 0, 0) rotate(0deg);
+		text-shadow: 0 0 4px white;
+	}
 }
 
 /* Apply random delay for each letter */
-.floating-letters span:nth-child(1) { animation-delay: 0s; }
-.floating-letters span:nth-child(2) { animation-delay: 0.2s; }
-.floating-letters span:nth-child(3) { animation-delay: 0.4s; }
-.floating-letters span:nth-child(4) { animation-delay: 0.6s; }
-.floating-letters span:nth-child(5) { animation-delay: 0.8s; }
-.floating-letters span:nth-child(6) { animation-delay: 1s; }
-.floating-letters span:nth-child(7) { animation-delay: 1.2s; }
-.floating-letters span:nth-child(8) { animation-delay: 1.4s; }
-.floating-letters span:nth-child(9) { animation-delay: 1.6s; }
-.floating-letters span:nth-child(10) { animation-delay: 1.8s; }
-.floating-letters span:nth-child(11) { animation-delay: 2s; }
-.floating-letters span:nth-child(12) { animation-delay: 2.2s; }
-.floating-letters span:nth-child(13) { animation-delay: 2.4s; }
-.floating-letters span:nth-child(14) { animation-delay: 2.6s; }
-.floating-letters span:nth-child(15) { animation-delay: 2.8s; }
-.floating-letters span:nth-child(16) { animation-delay: 3s; }
-.floating-letters span:nth-child(17) { animation-delay: 3.2s; }
-.floating-letters span:nth-child(18) { animation-delay: 3.4s; }
-.floating-letters span:nth-child(19) { animation-delay: 3.6s; }
-.floating-letters span:nth-child(20) { animation-delay: 3.8s; }
-.floating-letters span:nth-child(21) { animation-delay: 4s; }
-.floating-letters span:nth-child(22) { animation-delay: 4.2s; }
-.floating-letters span:nth-child(23) { animation-delay: 4.4s; }
-.floating-letters span:nth-child(24) { animation-delay: 4.6s; }
-.floating-letters span:nth-child(25) { animation-delay: 4.8s; }
+.floating-letters span:nth-child(1) {
+	animation-delay: 0s;
+}
+.floating-letters span:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.floating-letters span:nth-child(3) {
+	animation-delay: 0.4s;
+}
+.floating-letters span:nth-child(4) {
+	animation-delay: 0.6s;
+}
+.floating-letters span:nth-child(5) {
+	animation-delay: 0.8s;
+}
+.floating-letters span:nth-child(6) {
+	animation-delay: 1s;
+}
+.floating-letters span:nth-child(7) {
+	animation-delay: 1.2s;
+}
+.floating-letters span:nth-child(8) {
+	animation-delay: 1.4s;
+}
+.floating-letters span:nth-child(9) {
+	animation-delay: 1.6s;
+}
+.floating-letters span:nth-child(10) {
+	animation-delay: 1.8s;
+}
+.floating-letters span:nth-child(11) {
+	animation-delay: 2s;
+}
+.floating-letters span:nth-child(12) {
+	animation-delay: 2.2s;
+}
+.floating-letters span:nth-child(13) {
+	animation-delay: 2.4s;
+}
+.floating-letters span:nth-child(14) {
+	animation-delay: 2.6s;
+}
+.floating-letters span:nth-child(15) {
+	animation-delay: 2.8s;
+}
+.floating-letters span:nth-child(16) {
+	animation-delay: 3s;
+}
+.floating-letters span:nth-child(17) {
+	animation-delay: 3.2s;
+}
+.floating-letters span:nth-child(18) {
+	animation-delay: 3.4s;
+}
+.floating-letters span:nth-child(19) {
+	animation-delay: 3.6s;
+}
+.floating-letters span:nth-child(20) {
+	animation-delay: 3.8s;
+}
+.floating-letters span:nth-child(21) {
+	animation-delay: 4s;
+}
+.floating-letters span:nth-child(22) {
+	animation-delay: 4.2s;
+}
+.floating-letters span:nth-child(23) {
+	animation-delay: 4.4s;
+}
+.floating-letters span:nth-child(24) {
+	animation-delay: 4.6s;
+}
+.floating-letters span:nth-child(25) {
+	animation-delay: 4.8s;
+}
