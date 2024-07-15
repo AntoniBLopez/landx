@@ -2,9 +2,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { ChevronRight, Settings } from 'lucide-react';
+import { ChevronRight, Settings, Settings2 } from "lucide-react";
 import { useUIStore } from "@/store/ui-store";
-
 
 export function PlaceholdersAndVanishInput({
 	placeholders,
@@ -17,11 +16,17 @@ export function PlaceholdersAndVanishInput({
 }) {
 	const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
 	const intervalRef = useRef<NodeJS.Timeout | null>(null);
-	const openSideMenu = useUIStore(state => state.openSideMenu);
+	const isSideMenuOpen = useUIStore((state) => state.isSideMenuOpen);
+	const openSideMenu = useUIStore((state) => state.openSideMenu);
+	const closeSideMenu = useUIStore((state) => state.closeSideMenu);
 
 	const handleOpenSettings = () => {
-		openSideMenu()
-	}
+		if (isSideMenuOpen) {
+			closeSideMenu();
+		} else {
+			openSideMenu();
+		}
+	};
 
 	const startAnimation = () => {
 		intervalRef.current = setInterval(() => {
@@ -227,7 +232,7 @@ export function PlaceholdersAndVanishInput({
 				className="cursor-pointer absolute right-10 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full bg-gray-100/40  dark:bg-zinc-900/40 dark:disabled:bg-zinc-800/10 transition duration-200 flex items-center justify-center"
 				onClick={handleOpenSettings}
 			>
-				<Settings strokeWidth={1} />
+				<Settings2 strokeWidth={1} />
 			</button>
 
 			<button
