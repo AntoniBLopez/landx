@@ -1,9 +1,9 @@
 "use client";
-import { useTheme } from "next-themes";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ChevronRight, Settings } from 'lucide-react';
+import { useUIStore } from "@/store/ui-store";
 
 
 export function PlaceholdersAndVanishInput({
@@ -17,7 +17,11 @@ export function PlaceholdersAndVanishInput({
 }) {
 	const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
 	const intervalRef = useRef<NodeJS.Timeout | null>(null);
+	const openSideMenu = useUIStore(state => state.openSideMenu);
 
+	const handleOpenSettings = () => {
+		openSideMenu()
+	}
 
 	const startAnimation = () => {
 		intervalRef.current = setInterval(() => {
@@ -219,17 +223,16 @@ export function PlaceholdersAndVanishInput({
 			/>
 
 			<button
-				disabled={!value}
-				type="submit"
-				className="cursor-pointer absolute right-10 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full disabled:bg-gray-100/40 bg-black/90 dark:bg-zinc-900/40 dark:disabled:bg-zinc-800/10 transition duration-200 flex items-center justify-center"
+				type="button"
+				className="cursor-pointer absolute right-10 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full bg-gray-100/40  dark:bg-zinc-900/40 dark:disabled:bg-zinc-800/10 transition duration-200 flex items-center justify-center"
+				onClick={handleOpenSettings}
 			>
 				<Settings strokeWidth={.8} />
 			</button>
 
 			<button
-				disabled={!value}
 				type="submit"
-				className="cursor-pointer absolute right-2 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full disabled:bg-gray-100/40 bg-black/90 dark:bg-zinc-900/40 dark:disabled:bg-zinc-800/10 transition duration-200 flex items-center justify-center"
+				className="cursor-pointer absolute right-2 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full bg-gray-100/40  dark:bg-zinc-900/40 dark:disabled:bg-zinc-800/10 transition duration-200 flex items-center justify-center"
 			>
 				<ChevronRight strokeWidth={.8} />
 			</button>

@@ -6,7 +6,7 @@ interface State {
 	closeSideMenu: () => void;
 }
 
-export const useStore = create<State>()((set) => ({
+export const useUIStore = create<State>()((set) => ({
 	isSideMenuOpen: false,
 	openSideMenu: () => set({ isSideMenuOpen: true }),
 	closeSideMenu: () => set({ isSideMenuOpen: false }),
