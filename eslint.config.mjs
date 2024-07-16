@@ -16,7 +16,6 @@ export default [
 			"react/prop-types": "off",
 			"no-trailing-spaces": "error",
 			"no-tabs": "off",
-			"@typescript-eslint/indent": ["error", "tab"],
 			"@typescript-eslint/explicit-function-return-type": "off",
 			"@typescript-eslint/no-floating-promises": "off",
 		},
