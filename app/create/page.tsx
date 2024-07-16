@@ -25,7 +25,6 @@ export default function Chat() {
 	];
 
 	const onSubmit = async (event: { preventDefault: () => void }) => {
-		console.log(event);
 		event.preventDefault(); // Previene el comportamiento predeterminado del formulario
 		setIsLoading(true);
 
@@ -34,16 +33,17 @@ export default function Chat() {
 			name: "Business Analysis",
 			email: "business@analysis.com",
 			businessName: "Business Analysis",
-			serviceDescription:
-				"En Business Analysis, ofrecemos servicios de análisis de negocios que te permiten tomar decisiones informadas y estratégicas. Nuestro enfoque basado en datos y nuestra experiencia en diversas industrias nos permiten proporcionar información valiosa y personalizada que impulsa el crecimiento y la eficiencia de tu empresa.",
+			serviceDescription: 
+                "En Business Analysis, ofrecemos servicios de análisis de negocios que te permiten tomar decisiones informadas y estratégicas. Nuestro enfoque basado en datos y nuestra experiencia en diversas industrias nos permiten proporcionar información valiosa y personalizada que impulsa el crecimiento y la eficiencia de tu empresa.",
 			callToActionButtonName: "Empieza Ahora",
 			mainColor: "#00ff00",
 			font: "Montserrat",
 			stack:
-				"HTML5, CSS3 (preferentemente con Flexbox o Grid), y JavaScript (opcional). Puede usar un framework como Bootstrap si es necesario.",
+				"HTML5, CSS3 (preferentemente con Flexbox o Grid), y JavaScript (opcional). Puede usar un framework como Bootstrap, React, Vite, o NextJS si es necesario.",
 			foldersTech:
-				"HTML para la estructura, CSS para el estilo, y JavaScript para la interactividad (si es necesario).",
+				"HTML para la estructura, CSS para el estilo, y JavaScript para la interactividad (si es necesario), si es necesario, usar React.",
 		});
+
 		const placeholders = [
 			"Create a neon futuristic page with Cyberpunk vibes",
 			"Design a solid color E-Commerce concept",
