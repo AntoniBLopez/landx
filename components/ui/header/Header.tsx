@@ -31,7 +31,7 @@ export const Header = () => {
 					</div>
 				</div>
 			</div>
-			<div className={`h-[1px] mx-auto bg-black/70 dark:bg-gray-400 ${isSideMenuOpen ? "w-[100%]" : "w-[80%]"} mt-2`}></div>
+			<div className={`h-[1px] mx-auto bg-black/70 dark:bg-gray-400 ${isSideMenuOpen ? "w-[100%]" : "w-[80%]"}`}></div>
 		</nav>
 	);
 };

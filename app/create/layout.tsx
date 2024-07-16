@@ -29,7 +29,7 @@ export default function MainLayout({
 			</div>
 
 			<aside className={`z-50 h-screen md:relative min-w-full md:min-w-[380px] border-l border-l-[#000000b3] dark:border-l-gray-400 transition-[margin] bg-background md:bg-transparent ${isSideMenuOpen ? "absolute md:mr-0" : "relative mr-[-1000px] md:mr-[-380px]"}`}>
-				<header className="h-[83px] px-5 flex justify-between items-center border-b border-b-[#000000b3] dark:border-b-gray-400">
+				<header className="h-[75px] px-5 flex justify-between items-center border-b border-b-[#000000b3] dark:border-b-gray-400">
 					<h2 className="font-bold text-lg bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">¡Configure Your Landing Page!</h2>
 					<Button
 						onClick={handleCloseMenu}
