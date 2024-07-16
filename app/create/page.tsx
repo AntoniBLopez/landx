@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, FormEvent } from 'react'
 import { BackgroundBeams } from '@/components/ui/background-beams'
 import { PlaceholdersAndVanishInput } from '@/components/ui/input-vanisher'
 import qualityPrompt from '@/app/create/utils/qualityPrompt'
@@ -113,7 +113,7 @@ export default function Chat() {
 		"Build an interactive educational museum exhibit",
 	];
 
-	const onSubmit = async (event: { preventDefault: () => void }) => {
+	const onSubmit = async (event: FormEvent) => {
 		console.log(event);
 		event.preventDefault(); // Previene el comportamiento predeterminado del formulario
 		setIsLoading(true);

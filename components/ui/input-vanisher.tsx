@@ -1,8 +1,9 @@
 "use client";
-import { useTheme } from 'next-themes'
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { ChevronRight, Settings2 } from "lucide-react";
+import { useUIStore } from "@/store/ui-store";
 
 export function PlaceholdersAndVanishInput({
 	placeholders,
@@ -13,23 +14,34 @@ export function PlaceholdersAndVanishInput({
 	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }) {
-  const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const { theme } = useTheme()
+	const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
+	const intervalRef = useRef<NodeJS.Timeout | null>(null);
+	const isSideMenuOpen = useUIStore((state) => state.isSideMenuOpen);
+	const openSideMenu = useUIStore((state) => state.openSideMenu);
+	const closeSideMenu = useUIStore((state) => state.closeSideMenu);
 
-  const startAnimation = () => {
-    intervalRef.current = setInterval(() => {
-      setCurrentPlaceholder(Math.floor(Math.random() * placeholders.length));
-    }, 3000);
-  };
-  const handleVisibilityChange = () => {
-    if (document.visibilityState !== "visible" && intervalRef.current) {
-      clearInterval(intervalRef.current); // Clear the interval when the tab is not visible
-      intervalRef.current = null;
-    } else if (document.visibilityState === "visible") {
-      startAnimation(); // Restart the interval when the tab becomes visible
-    }
-  };
+	const handleOpenSettings = () => {
+		if (isSideMenuOpen) {
+			closeSideMenu();
+		} else {
+			openSideMenu();
+		}
+	};
+
+	const startAnimation = () => {
+		intervalRef.current = setInterval(() => {
+			setCurrentPlaceholder(Math.floor(Math.random() * placeholders.length));
+		}, 3000);
+	};
+
+	const handleVisibilityChange = () => {
+		if (document.visibilityState !== "visible" && intervalRef.current) {
+			clearInterval(intervalRef.current); // Clear the interval when the tab is not visible
+			intervalRef.current = null;
+		} else if (document.visibilityState === "visible") {
+			startAnimation(); // Restart the interval when the tab becomes visible
+		}
+	};
 
 	useEffect(() => {
 		setCurrentPlaceholder(Math.floor(Math.random() * placeholders.length));
@@ -45,11 +57,12 @@ export function PlaceholdersAndVanishInput({
 	}, [placeholders]);
 
 	const canvasRef = useRef<HTMLCanvasElement>(null);
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const newDataRef = useRef<any[]>([]);
 	const inputRef = useRef<HTMLInputElement>(null);
 	const [value, setValue] = useState("");
 	const [animating, setAnimating] = useState(false);
-	const [time, setTime] = useState(true);
+	// const [time, setTime] = useState(true);
 
 	const draw = useCallback(() => {
 		if (!inputRef.current) return;
@@ -70,11 +83,14 @@ export function PlaceholdersAndVanishInput({
 
 		const imageData = ctx.getImageData(0, 0, 800, 800);
 		const pixelData = imageData.data;
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		const newData: any[] = [];
 
 		for (let t = 0; t < 800; t++) {
+			// eslint-disable-next-line prefer-const
 			let i = 4 * t * 800;
 			for (let n = 0; n < 800; n++) {
+				// eslint-disable-next-line prefer-const
 				let e = i + 4 * n;
 				if (
 					pixelData[e] !== 0 &&
@@ -172,20 +188,20 @@ export function PlaceholdersAndVanishInput({
 		}
 	};
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    vanishAndSubmit();
-    onSubmit && onSubmit(e);
-  };
-  
-  return (
-    <form
-      className={cn(
-        "w-full relative max-w-xl mx-auto bg-white/40 dark:bg-zinc-800/40 h-12 rounded-full overflow-hidden shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200",
-        value && "bg-gray-50/20"
-      )}
-      onSubmit={handleSubmit}
-    >
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		vanishAndSubmit();
+		onSubmit && onSubmit(e);
+	};
+
+	return (
+		<form
+			className={cn(
+				"w-full relative max-w-xl mx-auto bg-white/40 dark:bg-zinc-800/40 h-12 rounded-full overflow-hidden shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200",
+				value && "bg-gray-50/20"
+			)}
+			onSubmit={handleSubmit}
+		>
 			<canvas
 				className={cn(
 					"absolute pointer-events-none  text-base transform scale-50 top-[20%] left-2 sm:left-8 origin-top-left filter invert dark:invert-0 pr-20",
@@ -211,42 +227,20 @@ export function PlaceholdersAndVanishInput({
 				)}
 			/>
 
-      <button
-        disabled={!value}
-        type="submit"
-        className="absolute right-2 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full disabled:bg-gray-100/40 bg-black/90 dark:bg-zinc-900/40 dark:disabled:bg-zinc-800/10 transition duration-200 flex items-center justify-center"
-      >
-        <motion.svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={`${theme === "dark" ? "text-gray-300" : "text-gray-500"}  h-4 w-4`}
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <motion.path
-            d="M5 12l14 0"
-            initial={{
-              strokeDasharray: "50%",
-              strokeDashoffset: "50%",
-            }}
-            animate={{
-              strokeDashoffset: value ? 0 : "50%",
-            }}
-            transition={{
-              duration: 0.3,
-              ease: "linear",
-            }}
-          />
-          <path d="M13 18l6 -6" />
-          <path d="M13 6l6 6" />
-        </motion.svg>
-      </button>
+			<button
+				type="button"
+				className="cursor-pointer absolute right-10 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full bg-gray-100/40  dark:bg-zinc-900/40 dark:disabled:bg-zinc-800/10 transition duration-200 flex items-center justify-center"
+				onClick={handleOpenSettings}
+			>
+				<Settings2 strokeWidth={1} />
+			</button>
+
+			<button
+				type="submit"
+				className="cursor-pointer absolute right-2 top-1/2 z-50 -translate-y-1/2 h-8 w-8 rounded-full bg-gray-100/40  dark:bg-zinc-900/40 dark:disabled:bg-zinc-800/10 transition duration-200 flex items-center justify-center"
+			>
+				<ChevronRight strokeWidth={1} />
+			</button>
 
 			<div className="absolute inset-0 flex items-center rounded-full pointer-events-none">
 				<AnimatePresence mode="wait">
