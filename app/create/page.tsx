@@ -122,16 +122,15 @@ export default function Chat() {
 			input,
 			businessName: "Business Analysis",
 			email: "business@analysis.com",
-			serviceDescription:
-				"En Business Analysis, ofrecemos servicios de análisis de negocios que te permiten tomar decisiones informadas y estratégicas. Nuestro enfoque basado en datos y nuestra experiencia en diversas industrias nos permiten proporcionar información valiosa y personalizada que impulsa el crecimiento y la eficiencia de tu empresa.",
+			serviceDescription: "En Business Analysis, ofrecemos servicios de análisis de negocios que te permiten tomar decisiones informadas y estratégicas. Nuestro enfoque basado en datos y nuestra experiencia en diversas industrias nos permiten proporcionar información valiosa y personalizada que impulsa el crecimiento y la eficiencia de tu empresa.",
 			callToActionButtonName: "Empieza Ahora",
 			mainColor: "#1d21f5",
 			secondaryColor: '#2673d1',
 			font: "Bricolage",
 			stack:
-				"HTML5, CSS3 (preferentemente con Flexbox o Grid), y JavaScript (opcional). Puede usar un framework como Bootstrap si es necesario.",
+				"HTML5, CSS3 (preferentemente con Flexbox o Grid), y JavaScript (opcional). Puede usar un framework como Bootstrap, React, Vite, o NextJS si es necesario.",
 			foldersTech:
-				"HTML para la estructura, CSS para el estilo, y JavaScript para la interactividad (si es necesario).",
+				"HTML para la estructura, CSS para el estilo, y JavaScript para la interactividad (si es necesario), si es necesario, usar React.",
 		});
 
 		await fetch("/api/chat", {

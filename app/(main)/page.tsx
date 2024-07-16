@@ -38,7 +38,7 @@ export default function Chat() {
 				<div className="flex w-full justify-center mb-12 sm:mb-28">
 					<Link
 						href="/create"
-						className="text-md sm:text-lg font-normal py-2 px-4 rounded-lg bg-cyan-500 text-white"
+						className="text-md sm:text-lg font-normal py-2 px-4 rounded-lg transition-all hover:dark:bg-white/30 hover:bg-black/20 border-black text-black dark:border-white border-[1px] bg-transparent dark:text-white"
 					>
 						Get started!
 					</Link>
