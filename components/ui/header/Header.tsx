@@ -8,6 +8,8 @@ import { useUIStore } from "@/store/ui-store";
 
 export const Header = () => {
 	const isSideMenuOpen = useUIStore((state) => state.isSideMenuOpen);
+	const closeSideMenu = useUIStore((state) => state.closeSideMenu)
+
 	return (
 		<nav className={`border-gray-200 fixed z-30 transition-[width] ${isSideMenuOpen ? "w-[calc(100vw-380px)]" : "w-full"} bg-background pb-4`}>
 			<div className="px-3 py-3 lg:px-5 lg:pl-5 flex">
@@ -18,7 +20,7 @@ export const Header = () => {
 						<ThemeModeToggle />
 					</div>
 				</div>
-				<Link href="/" className={"mx-auto"}>
+				<Link onClick={closeSideMenu} href="/" className={"mx-auto"}>
 					<Logo />
 				</Link>
 				<div className="flex items-center justify-between">
