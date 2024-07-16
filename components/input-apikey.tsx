@@ -33,7 +33,7 @@ export function InputApiKey() {
     >
       <input
         type="text"
-        placeholder="API Key"
+        placeholder="User API Key"
         className="relative text-sm sm:text-base z-50 border-none dark:text-white bg-transparent text-black h-full rounded-full focus:outline-none focus:ring-0 pl-4 sm:pl-10"
         onChange={(e) => setApiKey(e.target.value)}
         value={apiKey}

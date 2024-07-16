@@ -56,31 +56,33 @@ export default function MainLayout({
 							</div>
 						</div>
 
-						<div className="flex flex-col gap-2">
-							<span className="font-bold text-2xl">Color</span>
-							<div className="pl-2">
-								<div className="flex flex-row gap-2">
-									<input className="w-10 h-10 bg-transparent rounded-full hover:cursor-cell" type="color" name="color" id="color" />
+						<div className="flex flex-row pr-7 justify-between gap-5">
+							<div className="flex flex-col gap-2">
+								<span className="font-bold text-2xl">Color</span>
+								<div className="pl-2">
+									<div className="flex flex-row gap-2">
+										<input className="w-10 h-10 bg-transparent rounded-full hover:cursor-cell" type="color" name="color" id="color" />
+									</div>
 								</div>
 							</div>
-						</div>
 
-						{/* <div className="w-px h-100 bg-black dark:bg-white self-stretch"></div> */}
+							{/* <div className="w-px h-100 bg-black dark:bg-white self-stretch"></div> */}
 
-						<div className="flex flex-col gap-2">
-							<span className="font-bold text-2xl">Style</span>
-							<div className="pl-3">
-								<div className="flex flex-row items-center gap-2">
-									<input className="w-4 h-4 bg-transparent rounded-full hover:cursor-pointer" type="checkbox" name="color" id="color" />
-									<span>Modern</span>
-								</div>
-								<div className="flex flex-row items-center gap-2">
-									<input className="w-4 h-4 bg-transparent rounded-full hover:cursor-pointer" type="checkbox" name="color" id="color" />
-									<span>Classic</span>
-								</div>
-								<div className="flex flex-row items-center gap-2">
-									<input className="w-4 h-4 bg-transparent rounded-full hover:cursor-pointer" type="checkbox" name="color" id="color" />
-									<span>Minimalist</span>
+							<div className="flex flex-col gap-2">
+								<span className="font-bold text-2xl">Style</span>
+								<div className="pl-3">
+									<div className="flex flex-row items-center gap-2">
+										<input className="w-4 h-4 bg-transparent rounded-full hover:cursor-pointer" type="checkbox" name="color" id="color" />
+										<span>Modern</span>
+									</div>
+									<div className="flex flex-row items-center gap-2">
+										<input className="w-4 h-4 bg-transparent rounded-full hover:cursor-pointer" type="checkbox" name="color" id="color" />
+										<span>Classic</span>
+									</div>
+									<div className="flex flex-row items-center gap-2">
+										<input className="w-4 h-4 bg-transparent rounded-full hover:cursor-pointer" type="checkbox" name="color" id="color" />
+										<span>Minimalist</span>
+									</div>
 								</div>
 							</div>
 						</div>
