@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { BackgroundBeams } from '@/components/ui/background-beams'
 import { PlaceholdersAndVanishInput } from '@/components/ui/input-vanisher'
 import qualityPrompt from '@/app/create/utils/qualityPrompt'
+import { InputApiKey } from '@/components/input-apikey';
 
 export default function Chat() {
 	const [generation, setGeneration] = useState("");
@@ -186,6 +187,7 @@ export default function Chat() {
 					}
 				}}
 			></PlaceholdersAndVanishInput>
+			<InputApiKey />
 			<BackgroundBeams />
 		</main>
 	);
