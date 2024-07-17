@@ -32,7 +32,7 @@ export default function Chat() {
 			stack:
 				"HTML5, CSS3 (preferentemente con Flexbox o Grid), y JavaScript (opcional). Puede usar un framework como Bootstrap, React, Vite, o NextJS si es necesario.",
 			foldersTech:
-				"HTML para la estructura, CSS para el estilo, y JavaScript para la interactividad (si es necesario), si es necesario, usar React.",
+				"HTML para la estructura, CSS para el estilo, y JavaScript para la interactividad, y si es necesario usar React.",
 		});
 
 		await fetch("/api/chat", {
