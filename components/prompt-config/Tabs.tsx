@@ -5,7 +5,7 @@ interface Props {
 
 export function Tabs({sectionSelected, onChangeSection}: Props) {
 	return (
-		<div className="w-full h-[38px] rounded-full mx-auto text-sm border border-gray-300 bg-white">
+		<div className="w-full h-[38px] rounded-full mx-auto text-sm border border-gray-300 bg-white dark:bg-[#121212] dark:text-white">
 			<button
 				className={`w-1/3 h-full px-6 rounded-tl-full rounded-bl-full ${
 					sectionSelected === "business" &&
