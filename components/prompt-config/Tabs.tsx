@@ -13,7 +13,7 @@ export function Tabs({sectionSelected, onChangeSection}: Props) {
 				}`}
 				onClick={() => onChangeSection("business")}
 			>
-				Business
+				Description
 			</button>
 			<button
 				className={`w-1/3 h-full px-6 border-x border-x-gray-300 ${
@@ -22,7 +22,7 @@ export function Tabs({sectionSelected, onChangeSection}: Props) {
 				}`}
 				onClick={() => onChangeSection("style")}
 			>
-				Style
+				Design
 			</button>
 			<button
 				className={`w-1/3 h-full px-6 rounded-tr-full rounded-br-full ${
@@ -31,7 +31,7 @@ export function Tabs({sectionSelected, onChangeSection}: Props) {
 				}`}
 				onClick={() => onChangeSection("tech")}
 			>
-				Tech
+				Output
 			</button>
 		</div>
 	);
