@@ -5,6 +5,7 @@ import { useUIStore } from "@/store/ui-store";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import { Tabs } from "./Tabs";
+import { Form } from "./Form";
 
 export function PromptConfigSidebar() {
 	const [sectionSelected, setSectionSelected] = useState<string>("business");
@@ -60,11 +61,7 @@ export function PromptConfigSidebar() {
 					onChangeSection={handleSectionChange}
 				/>
 
-				<form>
-					{sectionSelected === "business" && <p>Business</p>}
-					{sectionSelected === "style" && <p>Style</p>}
-					{sectionSelected === "tech" && <p>Tech</p>}
-				</form>
+				<Form sectionSelected={sectionSelected}/>
 			</section>
 
 			<footer className="absolute bottom-8 w-full h-[50px] flex justify-center">

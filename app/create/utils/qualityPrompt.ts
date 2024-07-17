@@ -1,9 +1,9 @@
 const qualityPrompt = ({
   input,
-  businessName, // ok
-  email, // ok
-  serviceDescription, // ok
-  callToActionButtonName, // ok
+  businessName,
+  email,
+  serviceDescription,
+  callToActionButtonName,
   foldersTech,
   mainColor,
   secondaryColor,
