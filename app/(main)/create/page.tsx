@@ -30,7 +30,7 @@ export default function Chat() {
 			secondaryColor: "#2673d1",
 			font: "Bricolage",
 			stack:
-				"HTML5, CSS3 (preferentemente con Flexbox o Grid), y JavaScript (opcional). Puede usar un framework como Bootstrap, React, Vite, o NextJS si es necesario.",
+				"HTML5, CSS3 (preferentemente con Flexbox o Grid), y JavaScript. Puedes usar un framework como Bootstrap, React, Vite, o NextJS.",
 			foldersTech:
 				"HTML para la estructura, CSS para el estilo, y JavaScript para la interactividad, y si es necesario usar React.",
 		});
