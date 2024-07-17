@@ -5,6 +5,7 @@ import { BackgroundBeams } from '@/components/ui/background-beams'
 import { PlaceholdersAndVanishInput } from '@/components/ui/input-vanisher'
 import qualityPrompt from '@/app/create/utils/qualityPrompt'
 import { InputApiKey } from '@/components/input-apikey';
+import { usePromptConfigStore } from '@/store/prompt-config';
 
 export default function Chat() {
 	const [generation, setGeneration] = useState("");
@@ -12,6 +13,7 @@ export default function Chat() {
 	const [input, setInput] = useState("");
 	const [aiResponse, setAiResponse] = useState("");
 	const [time, setTime] = useState(true);
+	const promptConfig = usePromptConfigStore(state => state.promptConfig)
 
 	const placeholders = [
 		"Create a neon futuristic page with Cyberpunk vibes",
@@ -120,15 +122,14 @@ export default function Chat() {
 
 		const prompt = qualityPrompt({
 			input,
-			businessName: "Business Analysis",
-			email: "business@analysis.com",
-			serviceDescription: "En Business Analysis, ofrecemos servicios de análisis de negocios que te permiten tomar decisiones informadas y estratégicas. Nuestro enfoque basado en datos y nuestra experiencia en diversas industrias nos permiten proporcionar información valiosa y personalizada que impulsa el crecimiento y la eficiencia de tu empresa.",
-			callToActionButtonName: "Empieza Ahora",
-			mainColor: "#1d21f5",
-			secondaryColor: '#2673d1',
-			font: "Bricolage",
-			stack:
-				"HTML5, CSS3 (preferentemente con Flexbox o Grid), y JavaScript (opcional). Puede usar un framework como Bootstrap, React, Vite, o NextJS si es necesario.",
+			businessName: promptConfig.business__name,
+			email: promptConfig.business__email,
+			serviceDescription: promptConfig.business__description,
+			callToActionButtonName: promptConfig.business__CTA,
+			mainColor: promptConfig.style__primaryColor,
+			secondaryColor: promptConfig.style__secondaryColor,
+			font: promptConfig.style__font,
+			stack: promptConfig.tech__stack,
 			foldersTech:
 				"HTML para la estructura, CSS para el estilo, y JavaScript para la interactividad (si es necesario), si es necesario, usar React.",
 		});

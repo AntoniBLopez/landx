@@ -6,9 +6,14 @@ import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import { Tabs } from "./Tabs";
 import { Form } from "./Form";
+import { FormData, initialFormData, usePromptConfigStore } from "@/store/prompt-config";
+
+
 
 export function PromptConfigSidebar() {
 	const [sectionSelected, setSectionSelected] = useState<string>("business");
+	const [formData, setFormData] = useState<FormData>(initialFormData);
+	const savePromptConfig = usePromptConfigStore(state => state.savePromptConfig);
 	const isSideMenuOpen = useUIStore((state) => state.isSideMenuOpen);
 	const closeSideMenu = useUIStore((state) => state.closeSideMenu);
 
@@ -22,6 +27,15 @@ export function PromptConfigSidebar() {
 		setSectionSelected(section);
 	};
 
+	// Agrega los datos ingresados al state
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const handleFormChange = (e: any) => {
+		setFormData({
+			...formData,
+			[e.target.name]: e.target.value
+		})
+	}
+
 	// Envio de datos
 	const handleSend = () => {
 		if (sectionSelected === "business") {
@@ -32,7 +46,8 @@ export function PromptConfigSidebar() {
 			return;
 		}
 
-		// TODO: Envio del formulario...
+		savePromptConfig(formData);
+		setFormData(initialFormData);
 	};
 
 	return (
@@ -61,7 +76,7 @@ export function PromptConfigSidebar() {
 					onChangeSection={handleSectionChange}
 				/>
 
-				<Form sectionSelected={sectionSelected}/>
+				<Form sectionSelected={sectionSelected} formData={formData} onFormChange={handleFormChange} />
 			</section>
 
 			<footer className="absolute bottom-8 w-full h-[50px] flex justify-center">
