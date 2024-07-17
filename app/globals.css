@@ -4,6 +4,10 @@
 
 @layer base {
 	:root {
+		--select-border: #ffffff;
+		--select-focus: rgba(239, 239, 255, 0.462);
+		--select-arrow: var(--select-border);
+		  
 		--background: 273 100% 95%;
 		--foreground: 273 5% 0%;
 		--card: 273 50% 90%;
