@@ -1,8 +1,6 @@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 import { useState } from "react";
-import { Button } from "./ui/button";
-import { ArrowDown, Eye, EyeIcon, UserCircle } from "lucide-react";
-import { EyeClosedIcon } from "@radix-ui/react-icons";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 export function InputApiKey() {
 
@@ -37,7 +35,7 @@ export function InputApiKey() {
         className="flex relative max-w-xl mx-auto bg-white/40 dark:bg-zinc-800/40 h-9 rounded-full overflow-hidden shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200 mt-5"
         >
             {
-                !visible ? (<EyeClosedIcon className="mt-[0.55em] ml-[1em] size-4 cursor-pointer z-20" onClick={()=>{setVisible(prev => !prev)}} ></EyeClosedIcon>) : (<EyeIcon className="mt-[0.55em] ml-[1em] size-4 cursor-pointer z-20" onClick={()=>{setVisible(prev => !prev)}}></EyeIcon>)
+                !visible ? (<EyeOffIcon className="mt-[0.55em] ml-[1em] size-4 cursor-pointer z-20" onClick={()=>{setVisible(prev => !prev)}} ></EyeOffIcon>) : (<EyeIcon className="mt-[0.55em] ml-[1em] size-4 cursor-pointer z-20" onClick={()=>{setVisible(prev => !prev)}}></EyeIcon>)
             }
             <input 
                 type={visible ? 'text' : 'password'} 
