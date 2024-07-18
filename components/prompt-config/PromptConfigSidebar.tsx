@@ -53,14 +53,15 @@ export function PromptConfigSidebar() {
 
 	return (
 		<aside
-			className={`z-50 h-screen md:relative min-w-full md:min-w-[380px] border-l border-l-[#000000b3] dark:border-l-gray-400 transition-[margin] bg-background md:bg-transparent ${
-				isSideMenuOpen
+			className={`z-50 h-screen md:relative min-w-full md:min-w-[380px] border-l border-l-[#000000b3] dark:border-l-gray-400 transition-[margin] bg-background md:bg-transparent ${isSideMenuOpen
 					? "absolute md:mr-0"
 					: "relative mr-[-1000px] md:mr-[-380px]"
-			}`}
+				}`}
 		>
 			<header className="h-[75px] px-5 mb-8 flex justify-between items-center border-b border-b-[#000000b3] dark:border-b-gray-400">
-				<h2 className="font-bold text-md">¡Configure Your Landing Page!</h2>
+				<h2 className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
+					¡Configure Your Landing Page!
+				</h2>
 				<Button
 					onClick={handleCloseMenu}
 					variant="ghost"
@@ -82,7 +83,7 @@ export function PromptConfigSidebar() {
 
 			<footer className="absolute bottom-8 w-full h-[50px] flex justify-center">
 				<button
-					className="w-[90%] h-[48px] rounded-sm bg-gradient-to-r from-purple-500 to-blue-500 text-white font-bold"
+					className="w-[90%] h-[48px] rounded-sm bg-purple-500 text-white hover:bg-purple-700 font-bold"
 					onClick={handleSend}
 				>
 					{sectionSelected !== "tech" ? "Continue" : "Save"}

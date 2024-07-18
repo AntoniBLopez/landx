@@ -5,20 +5,20 @@ interface Props {
 
 export function Tabs({sectionSelected, onChangeSection}: Props) {
 	return (
-		<div className="w-full h-[38px] rounded-full mx-auto text-sm border border-gray-300 bg-white dark:bg-[#121212] dark:text-white">
+		<div className="w-full h-[38px] rounded-full mx-auto text-sm bg-white dark:bg-[#121212] dark:text-white">
 			<button
 				className={`w-1/3 h-full px-6 rounded-tl-full rounded-bl-full ${
 					sectionSelected === "business" &&
-					"text-white font-bold bg-gradient-to-r from-purple-500 to-blue-500"
+					"text-white font-semibold bg-purple-600"
 				}`}
 				onClick={() => onChangeSection("business")}
 			>
 				Description
 			</button>
 			<button
-				className={`w-1/3 h-full px-6 border-x border-x-gray-300 ${
+				className={`w-1/3 h-full px-6 ${
 					sectionSelected === "style" &&
-					"text-white font-bold bg-gradient-to-r from-purple-500 to-blue-500"
+					"text-white font-semibold bg-purple-600"
 				}`}
 				onClick={() => onChangeSection("style")}
 			>
@@ -27,7 +27,7 @@ export function Tabs({sectionSelected, onChangeSection}: Props) {
 			<button
 				className={`w-1/3 h-full px-6 rounded-tr-full rounded-br-full ${
 					sectionSelected === "tech" &&
-					"text-white font-bold bg-gradient-to-r from-purple-500 to-blue-500"
+					"text-white font-semibold bg-purple-600"
 				}`}
 				onClick={() => onChangeSection("tech")}
 			>
