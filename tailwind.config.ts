@@ -21,7 +21,7 @@ const config = {
 			padding: "2rem",
 			screens: {
 				"2xl": "1400px",
-				"xs": "500px",
+				xs: "500px",
 			},
 		},
 		extend: {
@@ -41,6 +41,10 @@ const config = {
 				secondary: {
 					DEFAULT: "hsl(var(--secondary))",
 					foreground: "hsl(var(--secondary-foreground))",
+				},
+				tertiary: {
+					DEFAULT: "hsl(var(--tertiary))",
+					foreground: "hsl(var(--tertiary-foreground))",
 				},
 				destructive: {
 					DEFAULT: "hsl(var(--destructive))",

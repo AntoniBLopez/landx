@@ -40,14 +40,7 @@ export const Sidebar = () => {
 			</header>
 
 			<form onSubmit={handleSubmit}>
-				<div className="flex my-5 px-8 justify-end">
-					<input
-						type="button"
-						value="Save"
-						className="py-1 px-2 rounded-sm hover:cursor-pointer text-green-500 bg-transparent hover:text-white hover:bg-green-600"
-					/>
-				</div>
-				<div className="flex flex-col px-8 gap-5">
+				<div className="flex flex-col px-8 gap-5 mt-3">
 					<div className="flex flex-col gap-2">
 						<span className="font-bold text-2xl">Text</span>
 						<div className="pl-2">
@@ -89,36 +82,46 @@ export const Sidebar = () => {
 						<div className="flex flex-col gap-2">
 							<span className="font-bold text-2xl">Style</span>
 							<div className="pl-3">
-								<div className="flex flex-row items-center gap-2">
+								<label className="flex flex-row items-center gap-2 cursor-pointer">
 									<input
 										className="w-4 h-4 bg-transparent rounded-full hover:cursor-pointer"
-										type="checkbox"
-										name="color"
-										id="color"
+										type="radio"
+										name="style"
+										id="modern"
 									/>
 									<span>Modern</span>
-								</div>
-								<div className="flex flex-row items-center gap-2">
+								</label>
+								<label className="flex flex-row items-center gap-2 cursor-pointer">
 									<input
 										className="w-4 h-4 bg-transparent rounded-full hover:cursor-pointer"
-										type="checkbox"
-										name="color"
-										id="color"
+										type="radio"
+										name="style"
+										id="classic"
 									/>
 									<span>Classic</span>
-								</div>
-								<div className="flex flex-row items-center gap-2">
+								</label>
+								<label className="flex flex-row items-center gap-2 cursor-pointer">
 									<input
 										className="w-4 h-4 bg-transparent rounded-full hover:cursor-pointer"
-										type="checkbox"
-										name="color"
-										id="color"
+										type="radio"
+										name="style"
+										id="minimalist"
 									/>
 									<span>Minimalist</span>
-								</div>
+								</label>
 							</div>
 						</div>
 					</div>
+				</div>
+				<div className="flex my-5 px-2 justify-center">
+					{/* <button
+						type="button"
+						value="Save"
+						className="py-1 px-2 rounded-sm hover:cursor-pointer text-green-500 bg-transparent hover:text-white hover:bg-green-600"
+					/> */}
+					<Button variant={"primary"} className="w-64" data-ripple-light="true">
+						Save
+					</Button>
 				</div>
 			</form>
 		</aside>
