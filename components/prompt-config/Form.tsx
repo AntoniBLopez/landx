@@ -1,4 +1,4 @@
-import { FormData } from "@/store/prompt-config";
+import { FormData } from "@/types";
 
 interface Props {
 	sectionSelected: string;
@@ -20,7 +20,7 @@ export function Form({ sectionSelected, onFormChange, formData }: Props) {
               value={formData.business__name}
 							onChange={onFormChange}
 							type="text"
-							placeholder="Ej. ACME Corporation"
+							placeholder="Acme Corporation"
 						/>
 					</label>
 					<label className="flex flex-col gap-2">
@@ -30,7 +30,7 @@ export function Form({ sectionSelected, onFormChange, formData }: Props) {
 							name="business__description"
               value={formData.business__description}
 							onChange={onFormChange}
-							placeholder="Ej. Solving problems you didn't know you had with solutions you didn't know you needed. Innovation guaranteed (supposedly)."
+							placeholder="Make your vignettes more fun using Acme, the simplest and fastest tool on the market."
 						></textarea>
 					</label>
 					<label className="flex flex-col gap-2">
@@ -41,7 +41,7 @@ export function Form({ sectionSelected, onFormChange, formData }: Props) {
               value={formData.business__email}
 							onChange={onFormChange}
 							type="email"
-							placeholder="Ej. example@acme.com"
+							placeholder="example@acme.com"
 						/>
 					</label>
 					<label className="flex flex-col gap-2">
@@ -54,7 +54,7 @@ export function Form({ sectionSelected, onFormChange, formData }: Props) {
               value={formData.business__CTA}
 							onChange={onFormChange}
 							type="email"
-							placeholder="Ej. Join ACME Now"
+							placeholder="Join now!"
 						/>
 					</label>
 				</fieldset>

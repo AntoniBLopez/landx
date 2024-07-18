@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import { Tabs } from "./Tabs";
 import { Form } from "./Form";
-import { FormData, initialFormData, usePromptConfigStore } from "@/store/prompt-config";
+import { initialFormData, usePromptConfigStore } from "@/store/prompt-config";
+import { FormData } from "@/types";
 
 
 
