@@ -1,13 +1,13 @@
 "use client";
 
+import { useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
 import { BackgroundBeams } from "@/components/ui/background-beams";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import Image from "next/image";
+import { Footer } from "@/components/ui/footer/Footer";
 
 export default function Chat() {
 	useEffect(() => {
@@ -27,7 +27,9 @@ export default function Chat() {
 						Ever wanted to create a
 					</h3>
 					<h3 className="text-2xl sm:text-3xl font-bold px-1.5 my-auto">PRO</h3>
-					<h3 className="text-lg sm:text-2xl font-bold my-auto">land page..</h3>
+					<h3 className="text-lg sm:text-2xl font-bold my-auto">
+						landing page...
+					</h3>
 				</div>
 				<h2 className="mb-12 sm:mb-28 bg-black/10 dark:bg-black/20 w-max mx-auto rounded-md px-4 mt-2 gradient-border">
 					<div className="gradient-text opacity-10" />
@@ -66,6 +68,7 @@ export default function Chat() {
 				</div>
 			</div>
 			<BackgroundBeams className="z-[-2]" />
+			<Footer />
 		</main>
 	);
 }

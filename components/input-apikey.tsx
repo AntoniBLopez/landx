@@ -5,6 +5,7 @@ import { ArrowDown, Eye, EyeIcon, UserCircle } from "lucide-react";
 import { EyeClosedIcon } from "@radix-ui/react-icons";
 
 export function InputApiKey() {
+
     const [apiKey, setApiKey] = useState("");
     const [api, setApi] = useState("OpenAI");
     const [visible, setVisible] = useState(false);

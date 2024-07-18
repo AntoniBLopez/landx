@@ -1,38 +1,44 @@
-const qualityPrompt = ({
-  input,
-  businessName,
-  email,
-  serviceDescription,
-  callToActionButtonName,
-  foldersTech,
-  mainColor,
-  secondaryColor,
-  font,
-  stack,
+export const qualityPrompt = ({
+	input,
+	businessName,
+	email,
+	serviceDescription,
+	callToActionButtonName,
+	foldersTech,
+	mainColor,
+	secondaryColor,
+	font,
+	stack,
 }: {
-  input: string;
-  businessName: string;
-  email: string;
-  serviceDescription: string;
-  callToActionButtonName: string;
-  foldersTech: string;
-  mainColor: string;
-  secondaryColor: string;
-  font: string;
-  stack: string;
+	input: string;
+	businessName: string;
+	email: string;
+	serviceDescription: string;
+	callToActionButtonName: string;
+	foldersTech: string;
+	mainColor: string;
+	secondaryColor: string;
+	font: string;
+	stack: string;
 }) => {
-  return `
+	return `
     Quiero que generes una landing page moderna y con un buen background impresionante para el negocio llamado ${businessName}, es un servicio que ofrece ${serviceDescription}.
 
     Que sea bonita y que tenga estilos avanzados, no le temas a que el codigo sea muy largo, usa tu creatividad!
 
-    Quiero que generes todas las imágenes que tenga que tener la landing page en archivos .svg, no te preocupes, puedes usar tu creatividad para que se vea impresionante.
+    Proveer un archivo zip con todos los archivos del código organizados y un archivo README con instrucciones para ejecutar y personalizar la landing page.
+
+    Quiero que generes todas las imágenes que tenga que tener la landing page en en el mismo archivo incrustrado, no te preocupes, puedes usar tu creatividad para que se vea impresionante.
 
     Necesito que la página tenga la siguiente estructura y contenido:
 
+    0. **HTML:**
+      - Que el archivo inice con sus etiquetas correspondientes html, metas, css, js, etc
+      - y que luego incluya los puntos numerados a continuacion.
+
     1. **Header:**
-      - Logo de ${businessName}. (a la izquierda) (y generame el logo en un archivo .svg)
-      - Menú de navegación con enlaces a "Inicio", "Servicios", "Sobre Nosotros", y "Contacto".
+      - Para el logo usar el nombre: ${businessName} alineado a la izquierda y generame el logo en svg incrustrado en el mismo archivo antes del nombre
+      - Menú de navegación con enlaces a "Inicio", "Servicios", "Sobre Nosotros", y "Contacto", alineado al centro con un estilo flex moderno, boton con hover.
 
     2. **Hero Section:**
       - Imagen de fondo llamativa.
@@ -59,7 +65,6 @@ const qualityPrompt = ({
 
     Añade Javascript para que tenga una buena UX/UI, y añade el script al html.
 
-    Proveer un archivo zip con todos los archivos del código organizados y un archivo README con instrucciones para ejecutar y personalizar la landing page.
     La página debe ser responsive y verse bien en dispositivos móviles y de escritorio.
     Incluir comentarios en el código para facilitar la comprensión y la modificación futura.
 
