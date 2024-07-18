@@ -1,2 +1,2 @@
-export * from "./placehoders-examples";
+export * from "./placehoders";
 export * from "./qualityPrompt";

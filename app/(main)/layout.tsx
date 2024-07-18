@@ -1,4 +1,7 @@
+"use client";
+
 import { Header } from "@/components/ui/header/Header";
+import { PromptConfigSidebar } from "@/components/prompt-config";
 
 export default function MainLayout({
 	children,
@@ -6,9 +9,12 @@ export default function MainLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<main className="main-container block">
-			<Header />
-			{children}
-		</main>
+		<div className="flex overflow-hidden">
+			<div className="main-container w-full">
+				<Header />
+				{children}
+			</div>
+			<PromptConfigSidebar />
+		</div>
 	);
 }

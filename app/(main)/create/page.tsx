@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useState, FormEvent } from "react";
-import { BackgroundBeams } from "@/components/ui/background-beams";
-import { PlaceholdersAndVanishInput } from "@/components/ui/input-vanisher";
-import { InputApiKey } from "@/components/input-apikey";
-import { Sidebar } from "@/components/ui/sidebar/Sidebar";
-import { placeholders, qualityPrompt } from "@/utils";
+import { useEffect, useState, FormEvent } from 'react'
+import { BackgroundBeams } from '@/components/ui/background-beams'
+import { PlaceholdersAndVanishInput } from '@/components/ui/input-vanisher'
+import { qualityPrompt } from '@/utils';
+import { InputApiKey } from '@/components/input-apikey';
+import { usePromptConfigStore } from '@/store/prompt-config';
+import { placeholders } from '@/utils'
 
 export default function Chat() {
 	const [generation, setGeneration] = useState("");
@@ -13,6 +14,7 @@ export default function Chat() {
 	const [input, setInput] = useState("");
 	const [aiResponse, setAiResponse] = useState("");
 	const [time, setTime] = useState(true);
+	const promptConfig = usePromptConfigStore(state => state.promptConfig)
 
 	const onSubmit = async (event: FormEvent) => {
 		console.log(event);
@@ -21,18 +23,16 @@ export default function Chat() {
 
 		const prompt = qualityPrompt({
 			input,
-			businessName: "Business Analysis",
-			email: "business@analysis.com",
-			serviceDescription:
-				"En Business Analysis, ofrecemos servicios de análisis de negocios que te permiten tomar decisiones informadas y estratégicas. Nuestro enfoque basado en datos y nuestra experiencia en diversas industrias nos permiten proporcionar información valiosa y personalizada que impulsa el crecimiento y la eficiencia de tu empresa.",
-			callToActionButtonName: "Empieza Ahora",
-			mainColor: "#1d21f5",
-			secondaryColor: "#2673d1",
-			font: "Bricolage",
-			stack:
-				"HTML5, CSS3 (preferentemente con Flexbox o Grid), y JavaScript. Puedes usar un framework como Bootstrap, React, Vite, o NextJS.",
+			businessName: promptConfig.business__name,
+			email: promptConfig.business__email,
+			serviceDescription: promptConfig.business__description,
+			callToActionButtonName: promptConfig.business__CTA,
+			mainColor: promptConfig.style__primaryColor,
+			secondaryColor: promptConfig.style__secondaryColor,
+			font: promptConfig.style__font,
+			stack: promptConfig.tech__stack,
 			foldersTech:
-				"HTML para la estructura, CSS para el estilo, y JavaScript para la interactividad, y si es necesario usar React.",
+				"HTML para la estructura, CSS para el estilo, y JavaScript para la interactividad (si es necesario), si es necesario, usar React.",
 		});
 
 		await fetch("/api/chat", {
@@ -70,40 +70,26 @@ export default function Chat() {
 	}, [aiResponse]);
 
 	return (
-		<>
-			<div className="flex overflow-hidden">
-				<main className="flex w-full h-screen flex-col items-center justify-center">
-					{generation && (
-						<>
-							<h1 className="mb-3">Response.</h1>
+		<main className="flex w-full h-screen flex-col items-center justify-center">
+			<h1>Input your vision.</h1>
 
-							<div className="overflow-y-auto max-h-80 w-full max-w-2xl border border-gray-200 mb-10">
-								{generation}
-							</div>
-						</>
-					)}
+			<div className="p-10">{isLoading ? "Loading..." : generation}</div>
 
-					<h1 className="mb-3">Input your vision.</h1>
-
-					<PlaceholdersAndVanishInput
-						placeholders={placeholders}
-						onChange={(e) => setInput(e.target.value)}
-						onSubmit={(event) => {
-							if (time) {
-								setTime(false);
-								onSubmit(event);
-								setTimeout(() => {
-									setTime(true);
-								}, 3000);
-							}
-						}}
-					></PlaceholdersAndVanishInput>
-					<InputApiKey />
-					<p className="h-1">{isLoading && <span>Loading...</span>}</p>
-					<BackgroundBeams className="z-[-2]" />
-				</main>
-				<Sidebar />
-			</div>
-		</>
+			<PlaceholdersAndVanishInput
+				placeholders={placeholders}
+				onChange={(e) => setInput(e.target.value)}
+				onSubmit={(event) => {
+					if (time) {
+						setTime(false);
+						onSubmit(event);
+						setTimeout(() => {
+							setTime(true);
+						}, 3000);
+					}
+				}}
+			></PlaceholdersAndVanishInput>
+			<InputApiKey />
+			<BackgroundBeams />
+		</main>
 	);
 }
