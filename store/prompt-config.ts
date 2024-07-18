@@ -1,16 +1,5 @@
 import { create } from "zustand";
-
-export interface FormData {
-	business__name: string;
-	business__description: string;
-	business__email: string;
-	business__CTA: string;
-	style__primaryColor: string;
-	style__secondaryColor: string;
-	style__font: string;
-	style__styleDesingn: string;
-	tech__stack: string;
-}
+import { FormData } from "@/types";
 
 export const initialFormData:FormData = {
 	business__name: "",

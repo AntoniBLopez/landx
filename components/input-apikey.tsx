@@ -1,30 +1,30 @@
 import { useState } from "react";
 
 export function InputApiKey() {
-  const [apiKey, setApiKey] = useState("");
-  const [api, setApi] = useState("openai");
+	const [apiKey, setApiKey] = useState("");
+	const [api, setApi] = useState("openai");
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(apiKey, api);
-    await fetch("/api/api-key", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        apiKey,
-        api,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  }
+	const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		console.log(apiKey, api);
+		await fetch("/api/api-key", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				apiKey,
+				api,
+			}),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+			})
+			.catch((error) => {
+				console.error("Error:", error);
+			});
+	};
 
   return (
     <form
@@ -39,15 +39,19 @@ export function InputApiKey() {
         value={apiKey}
       />
 
-      <select
-        name="api"
-        id="api"
-        className="relative text-sm sm:text-base z-50 border-none dark:text-white bg-transparent text-black h-full rounded-full focus:outline-none focus:ring-0 pl-4 pr-10"
-        onChange={(e) => setApi(e.target.value)}
-      >
-        <option value="openai">OpenAI</option>
-        <option value="gpt3">GPT-3</option>
-      </select>
-    </form>
-  )
+			<select
+				name="api"
+				id="api"
+				className="relative text-sm sm:text-base z-50 border-none dark:text-white bg-transparent text-black h-full rounded-full focus:outline-none focus:ring-0 pl-4 pr-1 mr-3"
+				onChange={(e) => setApi(e.target.value)}
+			>
+				<option value="openai" className="bg-white/40 dark:bg-zinc-800">
+					OpenAI
+				</option>
+				<option value="gpt3" className="bg-white/40 dark:bg-zinc-800">
+					GPT-3
+				</option>
+			</select>
+		</form>
+	);
 }
