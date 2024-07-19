@@ -43,14 +43,15 @@ export default function Chat() {
 						className="
 							text-md
 							sm:text-lg
-							font-semibold
+							font-medium
+							dark:font-normal
 							py-2
-							px-4
-							rounded-full
+							px-6
+							rounded-lg
 							transition-all
 							duration-200
-							bg-gradient-to-r from-black/5 to-transparent hover:from-black/5 hover:to-purple-500 hover:border-purple-500 dark:hover:border-purple-500
-						border-black text-black dark:border-white border-[2px] dark:text-white"
+							bg-gradient-to-r from-black/5 to-transparent hover:from-black/10 hover:to-purple-500 hover:border-purple-500 dark:hover:border-purple-500
+						border-black text-black hover:text-white dark:border-white border-[2px] dark:text-white"
 					>
 						{/* hover:dark:bg-white/30 hover:bg-black/20 */}
 						Get started!
