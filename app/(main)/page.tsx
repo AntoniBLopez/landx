@@ -40,8 +40,19 @@ export default function Chat() {
 				<div className="flex w-full justify-center mb-12 sm:mb-28">
 					<Link
 						href="/create"
-						className="text-md sm:text-lg font-normal py-2 px-4 rounded-lg transition-all hover:dark:bg-white/30 hover:bg-black/20 border-black text-black dark:border-white border-[1px] bg-transparent dark:text-white"
+						className="
+							text-md
+							sm:text-lg
+							font-semibold
+							py-2
+							px-4
+							rounded-full
+							transition-all
+							duration-200
+							bg-gradient-to-r from-black/5 to-transparent hover:from-black/5 hover:to-purple-500 hover:border-purple-500 dark:hover:border-purple-500
+						border-black text-black dark:border-white border-[2px] dark:text-white"
 					>
+						{/* hover:dark:bg-white/30 hover:bg-black/20 */}
 						Get started!
 					</Link>
 				</div>
