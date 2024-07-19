@@ -32,7 +32,7 @@ export default function Chat() {
 			font: promptConfig.style__font,
 			stack: promptConfig.tech__stack,
 			foldersTech:
-				"HTML para la estructura, CSS para el estilo, y JavaScript para la interactividad (si es necesario), si es necesario, usar React.",
+				"HTML para la estructura, CSS para el estilo, y JavaScript para la interactividad, y si es necesario, usar React.",
 		});
 
 		await fetch("/api/chat", {
