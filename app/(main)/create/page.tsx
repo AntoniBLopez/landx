@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState, FormEvent } from 'react'
-import { BackgroundBeams } from '@/components/ui/background-beams'
-import { PlaceholdersAndVanishInput } from '@/components/ui/input-vanisher'
-import { qualityPrompt } from '@/utils';
-import { InputApiKey } from '@/components/input-apikey';
-import { usePromptConfigStore } from '@/store/prompt-config';
-import { placeholders } from '@/utils'
+import { useEffect, useState, FormEvent } from "react";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+import { PlaceholdersAndVanishInput } from "@/components/ui/input-vanisher";
+import { qualityPrompt } from "@/utils";
+import { InputApiKey } from "@/components/input-apikey";
+import { usePromptConfigStore } from "@/store/prompt-config";
+import { placeholders } from "@/utils";
 
 export default function Chat() {
 	const [generation, setGeneration] = useState("");
@@ -14,7 +14,8 @@ export default function Chat() {
 	const [input, setInput] = useState("");
 	const [aiResponse, setAiResponse] = useState("");
 	const [time, setTime] = useState(true);
-	const promptConfig = usePromptConfigStore(state => state.promptConfig)
+	const promptConfig = usePromptConfigStore((state) => state.promptConfig);
+	const api = usePromptConfigStore((state) => state.api);
 
 	const onSubmit = async (event: FormEvent) => {
 		console.log(event);
@@ -39,6 +40,7 @@ export default function Chat() {
 			method: "POST",
 			body: JSON.stringify({
 				prompt,
+				api,
 			}),
 		}).then((response) => {
 			response.json().then((json) => {
