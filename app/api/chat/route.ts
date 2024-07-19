@@ -1,5 +1,11 @@
 import { generateText } from "ai";
 import { createOpenAI } from "@ai-sdk/openai";
+import { Api } from "@/types";
+
+interface ReqType {
+	prompt: string;
+	api: Api;
+}
 
 // Modelo gratuito
 const groq = createOpenAI({
@@ -8,7 +14,7 @@ const groq = createOpenAI({
 });
 
 export async function POST(req: Request) {
-	const { prompt }: { prompt: string } = await req.json();
+	const { prompt, api }: ReqType = await req.json();
 
 	const { text } = await generateText({
 		// model: openai('gpt-4'), para usar -> import { openai } from '@ai-sdk/openai'

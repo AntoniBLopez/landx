@@ -20,3 +20,8 @@ export interface FormData {
 	style__styleDesingn: string;
 	tech__stack: string;
 }
+
+export interface Api {
+	apiProvider: string;
+	apiKey: string;
+}

@@ -1,7 +1,7 @@
 import { create } from "zustand";
-import { FormData } from "@/types";
+import { Api, FormData } from "@/types";
 
-export const initialFormData:FormData = {
+export const initialFormData: FormData = {
 	business__name: "",
 	business__description: "",
 	business__email: "",
@@ -10,15 +10,24 @@ export const initialFormData:FormData = {
 	style__secondaryColor: "#ffffff",
 	style__font: "Arial",
 	style__styleDesingn: "Modern",
-	tech__stack: "Vanilla"
-}
+	tech__stack: "Vanilla",
+};
 
-interface State {
+const initialApi: Api = {
+	apiKey: "",
+	apiProvider: "",
+};
+
+export interface State {
 	promptConfig: FormData;
-  savePromptConfig: (config: FormData) => void;
+	api: Api;
+	savePromptConfig: (config: FormData) => void;
+	saveApi: (api: Api) => void;
 }
 
 export const usePromptConfigStore = create<State>()((set) => ({
 	promptConfig: initialFormData,
-  savePromptConfig: (config: FormData) => set({ promptConfig: config })
+	api: initialApi,
+	savePromptConfig: (config: FormData) => set({ promptConfig: config }),
+	saveApi: (api: Api) => set({ api }),
 }));
