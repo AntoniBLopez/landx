@@ -8,16 +8,16 @@ body {
 header {
     background-color: #1e90ff;
     color: #fff;
-    padding: 1rem;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    font-size: 2rem;
+    font-size: 40px;
     font-weight: bold;
-    margin-right: 1rem;
+    margin-right: 20px;
 }
 
 nav ul {
@@ -38,7 +38,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #ccc;
+    color: #4bcffa;
 }
 
 .hero-background {
@@ -56,16 +56,17 @@ nav a:hover {
 }
 
 .cta-button {
-    background-color: #1e90ff;
+    background-image: linear-gradient(to right, #1e90ff, #4bcffa);
+    border-radius: 10px;
     color: #fff;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
 }
 
 .cta-button:hover {
-    background-color: #2196f3;
+    background-image: linear-gradient(to right, #4bcffa, #1e90ff);
 }
 
 .servicios-grid {
@@ -97,18 +98,19 @@ nav a:hover {
 }
 
 .testimonio p {
-    font-size: 1.2rem;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .testimonio span {
-    font-size: 1rem;
+    font-size: 14px;
     color: #666;
 }
 
 footer {
     background-color: #1e90ff;
     color: #fff;
-    padding: 1rem;
+    padding: 20px;
     text-align: center;
 }
 
@@ -130,5 +132,5 @@ footer a {
 }
 
 footer a:hover {
-    color: #ccc;
+    color: #4bcffa;
 }

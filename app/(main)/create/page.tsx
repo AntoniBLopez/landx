@@ -9,18 +9,18 @@ import { usePromptConfigStore } from "@/store/prompt-config";
 import { placeholders } from "@/utils";
 
 export default function Chat() {
-	const [generation, setGeneration] = useState("");
-	const [isLoading, setIsLoading] = useState(false);
-	const [input, setInput] = useState("");
-	const [aiResponse, setAiResponse] = useState("");
-	const [time, setTime] = useState(true);
-	const promptConfig = usePromptConfigStore((state) => state.promptConfig);
-	const api = usePromptConfigStore((state) => state.api);
+	const [generation, setGeneration] = useState("")
+	const [isLoading, setIsLoading] = useState(false)
+	const [input, setInput] = useState("")
+	const [aiResponse, setAiResponse] = useState("")
+	const [time, setTime] = useState(true)
+	const promptConfig = usePromptConfigStore((state) => state.promptConfig)
+	const api = usePromptConfigStore((state) => state.api)
 
 	const onSubmit = async (event: FormEvent) => {
-		console.log(event);
-		event.preventDefault(); // Previene el comportamiento predeterminado del formulario
-		setIsLoading(true);
+		console.log(event)
+		event.preventDefault()
+		setIsLoading(true)
 
 		const prompt = qualityPrompt({
 			input,
@@ -72,26 +72,43 @@ export default function Chat() {
 	}, [aiResponse]);
 
 	return (
-		<main className="flex w-full h-screen flex-col items-center justify-center">
-			<h1>Input your vision.</h1>
+		<>
+			<main className="flex w-full h-full pt-20 flex-col items-center justify-center">
 
-			<div className="p-10">{isLoading ? "Loading..." : generation}</div>
+				{generation && (
+					<>
+						<h1 className="pb-3">Response.</h1>
 
-			<PlaceholdersAndVanishInput
-				placeholders={placeholders}
-				onChange={(e) => setInput(e.target.value)}
-				onSubmit={(event) => {
-					if (time) {
-						setTime(false);
-						onSubmit(event);
-						setTimeout(() => {
-							setTime(true);
-						}, 3000);
-					}
-				}}
-			></PlaceholdersAndVanishInput>
-			<InputApiKey />
-			<BackgroundBeams />
-		</main>
+						<div className="overflow-y-auto max-h-80 w-full max-w-2xl border border-gray-200 mb-10">
+							{generation}
+						</div>
+					</>
+				)}
+				{
+					isLoading
+					&&
+					<p className="h-1 pb-10">Loading...</p>
+				}
+
+				<h1 className="mb-3">Input your vision.</h1>
+
+				<PlaceholdersAndVanishInput
+					placeholders={placeholders}
+					onChange={(e) => setInput(e.target.value)}
+					onSubmit={(event) => {
+						if (time) {
+							setTime(false);
+							onSubmit(event);
+							setTimeout(() => {
+								setTime(true);
+							}, 3000);
+						}
+					}}
+				></PlaceholdersAndVanishInput>
+				<InputApiKey />
+				<BackgroundBeams className="z-[-2]" />
+			</main>
+			{/* <Sidebar /> */}
+		</>
 	);
 }
