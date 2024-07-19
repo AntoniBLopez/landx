@@ -46,7 +46,7 @@ export function InputApiKey() {
 			/>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
-					<span className="mt-1.5 cursor-pointer relative text-sm sm:text-base z-50 border-none dark:text-white bg-transparent text-black h-full rounded-full focus:outline-none focus:ring-0 pl-4 pr-4">{api} ↓</span>
+					<span className="mt-1.5 w-28 text-end cursor-pointer relative text-sm sm:text-base z-50 border-none dark:text-white bg-transparent text-black h-full rounded-full focus:outline-none focus:ring-0 pl-4 pr-4">{api} ↓</span>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent className="outline-none cursor-pointer bg-white/10 dark:bg-white/20 rounded-md overflow-hidden" align="end">
 					<DropdownMenuItem className="outline-none cursor-pointer bg-white/30 hover:bg-white/60 dark:bg-black/20 dark:hover:bg-white/20 p-2 px-3" onClick={() => { setApi('OpenAI') }}>OpenAI</DropdownMenuItem>
