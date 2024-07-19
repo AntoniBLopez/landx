@@ -57,15 +57,15 @@ export async function POST(req: Request) {
 				: language
 		}.${language === "javascript" ? "js" : language}`;
 
-		console.log("fileName", fileName);
+		// console.log("fileName", fileName);
 		const filePath = path.join(outputDir, fileName);
 		return fs.writeFile(filePath, code);
 	});
 
 	await Promise.all(filePromises);
 
-	console.log("codeSections", codeSections);
-	console.log("text", text);
+	// console.log("codeSections", codeSections);
+	// console.log("text", text);
 
 	return Response.json({ aiResponse: text });
 }
