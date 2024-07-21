@@ -185,6 +185,8 @@ export function PlaceholdersAndVanishInput({
 				0
 			);
 			animate(maxX);
+		}else{
+			setAnimating(false);
 		}
 	};
 
@@ -214,6 +216,7 @@ export function PlaceholdersAndVanishInput({
 				onChange={(e) => {
 					if (!animating) {
 						setValue(e.target.value);
+						setAnimating(false);
 						onChange && onChange(e);
 					}
 				}}
