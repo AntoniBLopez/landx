@@ -9,7 +9,7 @@ export function Tabs({sectionSelected, onChangeSection}: Props) {
 			<button
 				className={`w-1/3 h-full px-6 rounded-tl-full rounded-bl-full ${
 					sectionSelected === "business" &&
-					"text-white font-semibold bg-violet-800"
+					"text-white font-semibold bg-violet-600 dark:bg-violet-800"
 				}`}
 				onClick={() => onChangeSection("business")}
 			>
@@ -18,7 +18,7 @@ export function Tabs({sectionSelected, onChangeSection}: Props) {
 			<button
 				className={`w-1/3 h-full px-6 ${
 					sectionSelected === "style" &&
-					"text-white font-semibold bg-violet-800"
+					"text-white font-semibold bg-violet-600 dark:bg-violet-800"
 				}`}
 				onClick={() => onChangeSection("style")}
 			>
@@ -27,7 +27,7 @@ export function Tabs({sectionSelected, onChangeSection}: Props) {
 			<button
 				className={`w-1/3 h-full px-6 rounded-tr-full rounded-br-full ${
 					sectionSelected === "tech" &&
-					"text-white font-semibold bg-purple-800"
+					"text-white font-semibold bg-purple-600 dark:bg-purple-800"
 				}`}
 				onClick={() => onChangeSection("tech")}
 			>
