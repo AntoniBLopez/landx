@@ -1,5 +1,5 @@
-import { promises as fs } from 'fs';
-import path from 'path';
+import { promises as fs } from "fs";
+import path from "path";
 
 export async function POST(req: Request) {
 	const {
@@ -29,13 +29,15 @@ export async function POST(req: Request) {
 	});
 
 	// Ruta de la carpeta donde se guardan los archivos
-	const outputDir = path.join(process.cwd(), 'public', 'generated');
+	const outputDir = path.join(process.cwd(), "public", "generated");
 	await fs.mkdir(outputDir, { recursive: true });
 
 	// Eliminar todos los archivos en la carpeta 'public/generated'
 	try {
 		const files = await fs.readdir(outputDir);
-		const deletePromises = files.map(file => fs.unlink(path.join(outputDir, file)));
+		const deletePromises = files.map((file) =>
+			fs.unlink(path.join(outputDir, file))
+		);
 		await Promise.all(deletePromises);
 	} catch (error) {
 		console.error("Error al eliminar los archivos:", error);
@@ -43,17 +45,27 @@ export async function POST(req: Request) {
 
 	// Crear los nuevos archivos y guardarlos en la carpeta
 	const filePromises = codeSections.map(({ language, code }) => {
-		const fileName = `${language === 'svg' ? 'img' : language === 'css' ? 'styles' : language === 'javascript' ? 'script' : language === 'html' ? 'index' : language}.${language === 'javascript' ? 'js' : language}`;
+		const fileName = `${
+			language === "svg"
+				? "img"
+				: language === "css"
+				? "styles"
+				: language === "javascript"
+				? "script"
+				: language === "html"
+				? "index"
+				: language
+		}.${language === "javascript" ? "js" : language}`;
 
-		console.log("fileName", fileName);
+		// console.log("fileName", fileName);
 		const filePath = path.join(outputDir, fileName);
 		return fs.writeFile(filePath, code);
 	});
 
 	await Promise.all(filePromises);
 
-	console.log("codeSections", codeSections);
-	console.log("text", text);
+	// console.log("codeSections", codeSections);
+	// console.log("text", text);
 
 	return Response.json({ aiResponse: text });
 }
