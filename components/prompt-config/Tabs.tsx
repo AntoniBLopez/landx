@@ -7,7 +7,7 @@ export function Tabs({sectionSelected, onChangeSection}: Props) {
 	return (
 		<div className="w-full h-[38px] rounded-full mx-auto text-sm bg-white dark:bg-[#121212] dark:text-white">
 			<button
-				className={`w-1/3 h-full px-6 rounded-tl-full rounded-bl-full ${
+				className={`w-1/3 h-full px-6 hover:bg-violet-300/50 rounded-tl-full rounded-bl-full ${
 					sectionSelected === "business" &&
 					"text-white font-semibold bg-violet-600 dark:bg-violet-800"
 				}`}
@@ -16,7 +16,7 @@ export function Tabs({sectionSelected, onChangeSection}: Props) {
 				Description
 			</button>
 			<button
-				className={`w-1/3 h-full px-6 ${
+				className={`w-1/3 h-full px-6 hover:bg-violet-300/50 ${
 					sectionSelected === "style" &&
 					"text-white font-semibold bg-violet-600 dark:bg-violet-800"
 				}`}
@@ -25,7 +25,7 @@ export function Tabs({sectionSelected, onChangeSection}: Props) {
 				Design
 			</button>
 			<button
-				className={`w-1/3 h-full px-6 rounded-tr-full rounded-br-full ${
+				className={`w-1/3 h-full px-6 hover:bg-violet-300/50 rounded-tr-full rounded-br-full ${
 					sectionSelected === "tech" &&
 					"text-white font-semibold bg-violet-600 dark:bg-violet-800"
 				}`}
