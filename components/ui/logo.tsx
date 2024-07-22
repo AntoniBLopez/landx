@@ -1,5 +1,4 @@
 import React from "react";
-import theme from "tailwindcss/defaultTheme";
 
 export const Logo = () => {
 	return (
