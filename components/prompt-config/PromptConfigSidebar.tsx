@@ -99,7 +99,7 @@ export function PromptConfigSidebar() {
 
 			<footer className="absolute bottom-8 w-full h-[50px] flex justify-center">
 				<button
-					className="w-[90%] h-[48px] rounded-sm transition-all bg-violet-950 text-white hover:bg-violet-500 font-bold"
+					className="w-[90%] h-[48px] rounded-sm transition-all bg-violet-500 hover:bg-violet-400 dark:bg-violet-950 text-white dark:hover:bg-violet-500 font-bold"
 					onClick={handleSend}
 				>
 					{sectionSelected !== "tech" ? "Continue" : "Save"}

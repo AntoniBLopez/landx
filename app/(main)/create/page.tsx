@@ -73,7 +73,7 @@ export default function Chat() {
 
 	return (
 		<>
-			<main className="flex w-full h-full pt-20 flex-col items-center justify-center">
+			<main className="flex w-full h-full pt-15 flex-col items-center justify-center">
 
 				{generation && (
 					<>
@@ -90,7 +90,7 @@ export default function Chat() {
 					<p className="h-1 pb-10">Loading...</p>
 				}
 
-				<h1 className="mb-3">Input your vision.</h1>
+				<h1 className="mb-10 outlinedLabel text-transparent shadow-white">Input your vision.</h1>
 
 				<PlaceholdersAndVanishInput
 					placeholders={placeholders}

@@ -29,8 +29,16 @@
 		--input: 273 30% 18%;
 		--ring: 273 100% 88%;
 		--radius: 0.5rem;
+		.outlinedLabel {
+			color: #f9e9ff;
+			text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+		}
 	}
 	.dark {
+		.outlinedLabel {
+			color: #27162e;
+			text-shadow: -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255);
+		}
 		--background: 273 50% 5%;
 		--foreground: 273 5% 90%;
 		--card: 273 50% 0%;
@@ -239,3 +247,4 @@ h1 {
 .floating-letters span:nth-child(25) {
 	animation-delay: 4.8s;
 }
+
