@@ -23,6 +23,9 @@ export function ProfileTabButton() {
 				<Link href="/dashboard">
 					<DropdownMenuItem onClick={() => { }}>Dashboard</DropdownMenuItem>
 				</Link>
+				<Link href="/create">
+					<DropdownMenuItem onClick={() => { }}>Create</DropdownMenuItem>
+				</Link>
 				<DropdownMenuItem onClick={() => { }}>Settings</DropdownMenuItem>
 				<DropdownMenuItem onClick={() => { }}>Log Out</DropdownMenuItem>
 			</DropdownMenuContent>
