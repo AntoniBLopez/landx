@@ -5,7 +5,7 @@
 @layer base {
 	:root {
 		--select-border: #ffffff;
-		--select-focus: rgba(239, 239, 255, 0.462);
+		--select-focus: rgba(239, 239, 255, 0.933);
 		--select-arrow: var(--select-border);
 		  
 		--background: 273 100% 95%;
@@ -102,7 +102,7 @@ h1 {
 	);
 	background-size: 400% 400%;
 	animation: gradientText 5s ease infinite;
-	border-image: linear-gradient(270deg, #ffe7fa, #e0e0ff, #fff8d2, #ffebf3) 4;
+	border-image: linear-gradient(270deg, #ffe7fa, #e3e3ff, #fff8d2, #ffebf3) 7;
 }
 
 @keyframes bounce {

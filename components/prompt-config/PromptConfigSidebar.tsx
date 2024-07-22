@@ -71,7 +71,7 @@ export function PromptConfigSidebar() {
 			}`}
 		>
 			<header className="h-[75px] px-5 mb-8 flex justify-between items-center border-b border-b-[#000000b3] dark:border-b-gray-400 bg-background">
-				<h2 className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
+				<h2 className="dark:font-bold text-lg bg-clip-text bg-gradient-to-r text-black font-extralight dark:text-transparent dark:from-purple-300 dark:to-white">
 					¡Configure Your Landing Page!
 				</h2>
 				<Button
@@ -99,7 +99,7 @@ export function PromptConfigSidebar() {
 
 			<footer className="absolute bottom-8 w-full h-[50px] flex justify-center">
 				<button
-					className="w-[90%] h-[48px] rounded-sm bg-purple-500 text-white hover:bg-purple-700 font-bold"
+					className="w-[90%] h-[48px] rounded-sm transition-all bg-violet-950 text-white hover:bg-violet-500 font-bold"
 					onClick={handleSend}
 				>
 					{sectionSelected !== "tech" ? "Continue" : "Save"}
