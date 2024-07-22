@@ -49,9 +49,26 @@ export default function Chat() {
 							px-6
 							rounded-lg
 							transition-all
-							duration-200
-							bg-gradient-to-r from-black/5 to-transparent hover:from-black/10 hover:to-purple-500 hover:border-purple-500 dark:hover:border-purple-500
-						border-black text-black hover:text-white dark:border-white border-[2px] dark:text-white"
+							duration-400
+							bg-gradient-to-r 
+
+							from-black/5 to-transparent 
+
+							hover:from-white/10 
+							
+							hover:to-purple-200 
+
+							dark:hover:from-black/10 
+
+							dark:hover:to-purple-950
+							
+							hover:border-purple-200 
+							
+							dark:hover:border-purple-700
+
+							dark:border-white
+
+						border-black text-black hover:text-white border-[2px] dark:text-white"
 					>
 						{/* hover:dark:bg-white/30 hover:bg-black/20 */}
 						Get started!

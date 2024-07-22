@@ -11,7 +11,7 @@ export const Header = () => {
 	const closeSideMenu = useUIStore((state) => state.closeSideMenu)
 
 	return (
-		<nav className={`border-gray-200 fixed z-30 transition-[width] ${isSideMenuOpen ? "w-[calc(100vw-380px)]" : "w-full"} bg-background pb-4`}>
+		<nav className={`border-gray-200 fixed z-30 transition-all ${isSideMenuOpen ? "w-[calc(100vw-380px)]" : "w-full"} bg-background ${isSideMenuOpen ? "pb-0" : "pb-4"}`}>
 			<div className="px-3 py-3 lg:px-5 lg:pl-5 flex">
 				<div className="flex items-center justify-between">
 					<div className="flex items-center">

@@ -1,12 +1,15 @@
 import React from "react";
+import theme from "tailwindcss/defaultTheme";
 
 export const Logo = () => {
 	return (
 		<svg
-			className={"fill-black dark:fill-white"}
+			className={"stroke-black dark:stroke-white fill-none"}
 			version="1.0"
+			stroke="#000"
+			strokeWidth={260}
 			xmlns="http://www.w3.org/2000/svg"
-			width="50"
+			width="55"
 			height="50"
 			viewBox="0 0 1024.000000 1024.000000"
 			preserveAspectRatio="xMidYMid meet"
