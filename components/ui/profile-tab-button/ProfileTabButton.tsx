@@ -1,11 +1,8 @@
 "use client";
 
-import * as React from "react";
+import Link from "next/link";
 import { UserCircle } from "lucide-react";
-
-
 import { Button } from "@/components/ui/button";
-
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -23,9 +20,11 @@ export function ProfileTabButton() {
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align="end">
-				<DropdownMenuItem onClick={() => {}}>Dashboard</DropdownMenuItem>
-				<DropdownMenuItem onClick={() => {}}>Settings</DropdownMenuItem>
-				<DropdownMenuItem onClick={() => {}}>Log Out</DropdownMenuItem>
+				<Link href="/dashboard">
+					<DropdownMenuItem onClick={() => { }}>Dashboard</DropdownMenuItem>
+				</Link>
+				<DropdownMenuItem onClick={() => { }}>Settings</DropdownMenuItem>
+				<DropdownMenuItem onClick={() => { }}>Log Out</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>
 	);

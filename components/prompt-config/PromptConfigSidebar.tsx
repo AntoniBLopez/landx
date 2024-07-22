@@ -64,14 +64,13 @@ export function PromptConfigSidebar() {
 
 	return (
 		<aside
-			className={`z-50 h-screen md:relative min-w-full md:min-w-[380px] border-l border-l-[#000000b3] dark:border-l-gray-400 transition-[margin] bg-background md:bg-transparent ${
-				isSideMenuOpen
-					? "absolute md:mr-0"
-					: "relative mr-[-1000px] md:mr-[-380px]"
-			}`}
+			className={`z-50 h-screen md:relative min-w-full md:min-w-[380px] border-l border-l-[#000000b3] dark:border-l-gray-400 transition-[margin] bg-background md:bg-transparent ${isSideMenuOpen
+				? "absolute md:mr-0"
+				: "relative mr-[-1000px] md:mr-[-380px]"
+				}`}
 		>
 			<header className="h-[75px] px-5 mb-8 flex justify-between items-center border-b border-b-[#000000b3] dark:border-b-gray-400 bg-background">
-				<h2 className="dark:font-bold text-lg bg-clip-text bg-gradient-to-r text-black font-extralight dark:text-transparent dark:from-purple-300 dark:to-white">
+				<h2 className="dark:font-bold text-lg bg-clip-text bg-gradient-to-r text-black font-normal dark:text-transparent dark:from-purple-300 dark:to-white">
 					¡Configure Your Landing Page!
 				</h2>
 				<Button
@@ -99,7 +98,15 @@ export function PromptConfigSidebar() {
 
 			<footer className="absolute bottom-8 w-full h-[50px] flex justify-center">
 				<button
-					className="w-[90%] h-[48px] rounded-sm transition-all bg-violet-500 hover:bg-violet-400 dark:bg-violet-950 text-white dark:hover:bg-violet-500 font-bold"
+					className={`
+						w-[90%]
+						h-[48px]
+						font-bold
+						rounded-sm
+						transition-all
+						text-white
+						${sectionSelected === 'tech' ? 'bg-[#5945ed] hover:bg-[#4231c4] dark:bg-[#342699] dark:hover:bg-[#5945ed]' : 'bg-violet-600 hover:bg-violet-800 dark:bg-violet-950 dark:hover:bg-violet-600'}
+					`}
 					onClick={handleSend}
 				>
 					{sectionSelected !== "tech" ? "Continue" : "Save"}
