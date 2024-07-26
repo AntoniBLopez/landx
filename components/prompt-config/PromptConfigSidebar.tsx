@@ -105,7 +105,7 @@ export function PromptConfigSidebar() {
 						rounded-sm
 						transition-all
 						text-white
-						${sectionSelected === 'tech' ? 'bg-[#5945ed] hover:bg-[#4231c4] dark:bg-[#342699] dark:hover:bg-[#5945ed]' : 'bg-violet-600 hover:bg-violet-800 dark:bg-violet-950 dark:hover:bg-violet-600'}
+						bg-violet-400 hover:bg-violet-200 dark:bg-violet-600 dark:hover:bg-violet-400
 					`}
 					onClick={handleSend}
 				>

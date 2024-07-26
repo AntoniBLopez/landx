@@ -9,8 +9,18 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useEffect, useState } from "react";
+import { getSession } from "@/app/api/session/getSession";
 
 export function ProfileTabButton() {
+	const [session, setSession] = useState(false)
+	useEffect(()=>{
+		async function c() {
+			let result = await getSession(localStorage.getItem('session')!!)
+			setSession(result.session)
+		}
+		c()
+	}, [])
 	return (
 		<DropdownMenu modal={false}>
 			<DropdownMenuTrigger asChild>
@@ -21,13 +31,29 @@ export function ProfileTabButton() {
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align="end">
 				<Link href="/dashboard">
-					<DropdownMenuItem onClick={() => { }}>Dashboard</DropdownMenuItem>
+					<DropdownMenuItem>Dashboard</DropdownMenuItem>
 				</Link>
-				<Link href="/create">
-					<DropdownMenuItem onClick={() => { }}>Create</DropdownMenuItem>
-				</Link>
-				<DropdownMenuItem onClick={() => { }}>Settings</DropdownMenuItem>
-				<DropdownMenuItem onClick={() => { }}>Log Out</DropdownMenuItem>
+				{
+					session ? (
+						<>
+						<Link href="/create">
+							<DropdownMenuItem>Create</DropdownMenuItem>
+						</Link>
+						<DropdownMenuItem>Profile</DropdownMenuItem>
+						</>
+					) : null	
+				}	
+				{
+					session ? (
+						<Link href='/logout'>
+							<DropdownMenuItem>Log out</DropdownMenuItem>
+						</Link>
+					) : (
+						<Link href='/login'>
+							<DropdownMenuItem>Log in</DropdownMenuItem>
+						</Link>
+					)		
+				}	
 			</DropdownMenuContent>
 		</DropdownMenu>
 	);
