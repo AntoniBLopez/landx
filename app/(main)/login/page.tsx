@@ -15,7 +15,7 @@ export default function Page({ formData }: Props) {
 
     useEffect(()=>{
 		async function c() {
-			let result = await getSession(localStorage.getItem('session')!!)
+			const result = await getSession(localStorage.getItem('session')!!)
 			if(result.session === true) window.location.assign('/')
 		}
 		c()
@@ -43,7 +43,7 @@ export default function Page({ formData }: Props) {
         try {
             if (reg) {
                 try {
-                    let result = await addUser({
+                    const result = await addUser({
                         name: formdata.name!!,
                         email: formdata.email,
                         password: formdata.password
@@ -59,7 +59,7 @@ export default function Page({ formData }: Props) {
                 }
             } else {
                 try {
-                    let result = await loginSession(formdata.email, formdata.password);
+                    const result = await loginSession(formdata.email, formdata.password);
                     if(result?.result === 'done')
                     {
                         localStorage.setItem('session', result.info!!)
@@ -122,7 +122,7 @@ export default function Page({ formData }: Props) {
                     {reg ? 'Register' : 'Log in'}
                 </Button>
                 <h6 onClick={() => setReg(prev => !prev)} className="text-xs cursor-pointer pt-1">
-                    {reg ? 'I have an account!' : `I don't have an account.`}
+                    {reg ? 'I already have an account!' : `I don't have an account.`}
                 </h6>
             </fieldset>
             <BackgroundBeams className="z-[-90]" />
