@@ -7,8 +7,9 @@ import { qualityPrompt } from "@/utils";
 import { InputApiKey } from "@/components/input-apikey";
 import { usePromptConfigStore } from "@/store/prompt-config";
 import { placeholders } from "@/utils";
+import { getSession } from "@/app/api/session/getSession";
 
-export default function Chat() {
+export default function Page() {
 	const [generation, setGeneration] = useState("")
 	const [isLoading, setIsLoading] = useState(false)
 	const [input, setInput] = useState("")
@@ -16,6 +17,14 @@ export default function Chat() {
 	const [time, setTime] = useState(true)
 	const promptConfig = usePromptConfigStore((state) => state.promptConfig)
 	const api = usePromptConfigStore((state) => state.api)
+
+	useEffect(()=>{
+		async function c() {
+			let result = await getSession(localStorage.getItem('session')!!)
+			if(result.session === false) window.location.assign('/login')
+		}
+		c()
+	}, [])
 
 	const onSubmit = async (event: FormEvent) => {
 		console.log(event)

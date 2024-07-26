@@ -5,6 +5,7 @@ import { Logo } from "@/components/ui/logo";
 import { ProfileTabButton } from "@/components/ui/profile-tab-button/ProfileTabButton";
 import { ThemeModeToggle } from "@/components/ui/theme-mode/ThemeMode";
 import { useUIStore } from "@/store/ui-store";
+import { useEffect } from "react";
 
 export const Header = () => {
 	const isSideMenuOpen = useUIStore((state) => state.isSideMenuOpen);

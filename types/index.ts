@@ -17,8 +17,15 @@ export interface FormData {
 	style__primaryColor: string;
 	style__secondaryColor: string;
 	style__font: string;
-	style__styleDesingn: string;
+	style__fontweight: number;
+	style__styleDesign: string;
 	tech__stack: string;
+}
+
+export interface LoginForm {
+	name: string | null;
+	email: string;
+	password: string;
 }
 
 export interface Api {
