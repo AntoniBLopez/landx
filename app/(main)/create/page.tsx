@@ -20,7 +20,7 @@ export default function Page() {
 
 	useEffect(()=>{
 		async function c() {
-			let result = await getSession(localStorage.getItem('session')!!)
+			const result = await getSession(localStorage.getItem('session')!!)
 			if(result.session === false) window.location.assign('/login')
 		}
 		c()
