@@ -4,8 +4,8 @@ export const getSession = async (sessionId: string) => {
 
     try {
 
-        await account.getSession(sessionId)
-        return {result: 'done', session: true}
+        let session = await account.getSession(sessionId)
+        return {result: 'done', session: true, sessionInfo: session.userId}
 
     } catch (error) {
 

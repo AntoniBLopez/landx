@@ -48,12 +48,13 @@ export default function Chat() {
 						but never knew how or where to start?
 					</span>
 				</h2>
-				<div className="flex w-full justify-center mb-12 sm:mb-28">
+				<div className="flex flex-col w-max -mt-3 mx-auto justify-center mb-12 sm:mb-28">
 					{
 						isLogged ? (
 							<Link
 								href="/create"
 								className="
+									m-2
 									text-md
 									sm:text-lg
 									font-medium
@@ -81,6 +82,7 @@ export default function Chat() {
 							<Link
 								href="/login"
 								className="
+									m-2
 									text-md
 									sm:text-lg
 									font-medium
@@ -106,6 +108,33 @@ export default function Chat() {
 							</Link>
 						)
 					}
+					<Link
+						href="/dashboard"
+						className="
+							m-2
+							text-md
+							sm:text-lg
+							font-medium
+							dark:font-normal
+							py-2
+							px-6
+							rounded-lg
+							transition-all
+							duration-400
+							bg-gradient-to-r
+							from-black/5 to-transparent
+							hover:from-white/10
+							hover:to-purple-200
+							dark:hover:from-black/10
+							dark:hover:to-purple-950
+							hover:border-purple-200
+							dark:hover:border-purple-700
+							dark:border-white
+							border-black text-black hover:text-white hover:font-bold border-[2px] dark:text-white"
+					>
+						{/* hover:dark:bg-white/30 hover:bg-black/20 */}
+						Explore LandX ART!
+					</Link>
 				</div>
 				<div className="bounce flex justify-center">
 					<ArrowDown />
@@ -117,12 +146,12 @@ export default function Chat() {
 					</h2>
 					<div className="flex justify-center mt-5">
 						<Image
-							src="/example.png"
+							src="/landx.png"
 							className="rounded-xl"
 							data-aos="fade-up"
 							alt="Template"
-							width={1600}
-							height={854}
+							width={1920*2}
+							height={1080*2}
 							sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 60vw"
 							style={{ width: "100%", height: "auto" }}
 						/>
