@@ -14,12 +14,8 @@ import { getSession } from "@/app/api/session/getSession";
 
 export function ProfileTabButton() {
 	const [session, setSession] = useState(false)
-<<<<<<< HEAD
-	useEffect(() => {
-=======
 	const [user, setUser] = useState<string>('')
 	useEffect(()=>{
->>>>>>> 317893a10e74eae25aaf91c5ec2e6b7ece5c9c30
 		async function c() {
 			let result = await getSession(localStorage.getItem('session')!!)
 			setUser(result.sessionInfo!!)
