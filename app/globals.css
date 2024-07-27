@@ -266,3 +266,34 @@ h1 {
 	border-radius: 15px;
 	border: solid 2px black;
 }
+
+.green-text {
+	color: rgb(133, 255, 133);
+	animation-name: greener;
+	animation-iteration-count: 1;
+	animation-duration: 2s;
+}
+
+.green-bg {
+	animation-name: greener-bg;
+	animation-iteration-count: 1;
+	animation-duration: 2s;
+}
+
+@keyframes greener {
+	0% {
+		color: rgb(133, 255, 133);
+	}
+	100% {
+		color: rgb(156 163 175 / var(--tw-text-opacity));
+	}
+}
+
+@keyframes greener-bg {
+	0% {
+		background-color: rgb(133, 255, 133);
+	}
+	100% {
+		background-color: rgb(156 163 175 / var(--tw-text-opacity));
+	}
+}

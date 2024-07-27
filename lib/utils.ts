@@ -9,7 +9,7 @@ export function cn(...inputs: ClassValue[]) {
 export function constructMetadata({
 	title = "LandX",
 	description = "Design your own Landing page with AI.",
-	image = "/thumbnail.png",
+	image = "/landx.png",
 	icons = "/favicon.png",
 	noIndex = false,
 }: {
@@ -27,7 +27,7 @@ export function constructMetadata({
 			description,
 			images: [
 				{
-					url: image,
+					url: image
 				},
 			],
 		},

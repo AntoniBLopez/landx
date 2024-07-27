@@ -14,9 +14,15 @@ import { getSession } from "@/app/api/session/getSession";
 
 export function ProfileTabButton() {
 	const [session, setSession] = useState(false)
+<<<<<<< HEAD
 	useEffect(() => {
+=======
+	const [user, setUser] = useState<string>('')
+	useEffect(()=>{
+>>>>>>> 317893a10e74eae25aaf91c5ec2e6b7ece5c9c30
 		async function c() {
 			let result = await getSession(localStorage.getItem('session')!!)
+			setUser(result.sessionInfo!!)
 			setSession(result.session)
 		}
 		c()
@@ -45,12 +51,12 @@ export function ProfileTabButton() {
 				{
 					session ? (
 						<>
-							<Link href="/profile">
-								<DropdownMenuItem>Profile</DropdownMenuItem>
-							</Link>
-							<Link href='/logout'>
-								<DropdownMenuItem>Log out</DropdownMenuItem>
-							</Link>
+						<Link href="/create">
+							<DropdownMenuItem>Create</DropdownMenuItem>
+						</Link>
+						<Link href={"/user/"+user}>
+							<DropdownMenuItem>Profile</DropdownMenuItem>
+						</Link>
 						</>
 					) : (
 						<Link href='/login'>
