@@ -5,14 +5,9 @@ import { loginSession } from "@/app/api/session/loginSession";
 import { addUser } from "@/app/api/users/addUser";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Button } from "@/components/ui/button";
-import { LoginForm } from "@/types";
 import { useEffect, useState } from "react";
 
-interface Props {
-  formData?: LoginForm;
-}
-
-export default function Page({ formData }: Props) {
+export default function Page() {
 
   useEffect(() => {
     async function c() {
@@ -22,13 +17,12 @@ export default function Page({ formData }: Props) {
     c()
   }, [])
 
-  const initialFormData: LoginForm = {
-    name: formData?.name ?? "",
-    email: formData?.email ?? "",
-    password: formData?.password ?? ""
-  };
 
-  const [formdata, setFormData] = useState<LoginForm>(initialFormData);
+  const [formdata, setFormData] = useState<any>({
+    name: "",
+    email: "",
+    password: ""
+  });
   const [reg, setReg] = useState(true);
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {

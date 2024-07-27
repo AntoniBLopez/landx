@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+/* eslint-disable @typescript-eslint/no-extra-non-null-assertion */
 "use client";
 import { useEffect, useState } from "react";
 import { getPosts } from "@/app/api/posts/getPosts";
@@ -7,7 +10,6 @@ import { getUser } from "@/app/api/users/getUser";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { Canva } from "@/components/ui/canva";
 import { LikeHandler } from "@/components/ui/LikeHandler";
-import Framer from "@/components/ui/Framer";
 import FramerCanva from "@/components/ui/FramerCanva";
 import { getPost } from "@/app/api/posts/getPost";
 
@@ -49,7 +51,7 @@ export default function Page() {
       const user = await getUser(localStorage.getItem("username")!!);
       if (response.result === "done") {
         setTotal(response?.total!!);
-        const postsWithLikes = response?.info?.map((post) => ({
+        const postsWithLikes = response?.info?.map((post: any) => ({
           ...post,
           liked: user?.user?.liked__posts.includes(post.$id),
         }));
