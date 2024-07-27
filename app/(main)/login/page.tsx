@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-extra-non-null-assertion */
 "use client";
 import { getSession } from "@/app/api/session/getSession";
@@ -9,7 +8,11 @@ import { Button } from "@/components/ui/button";
 import { LoginForm } from "@/types";
 import { useEffect, useState } from "react";
 
-export default function Page({ formData }: { formData: any}) {
+interface Props {
+  formData?: LoginForm;
+}
+
+export default function Page({ formData }: Props) {
 
   useEffect(() => {
     async function c() {
