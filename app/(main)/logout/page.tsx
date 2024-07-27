@@ -1,7 +1,7 @@
 "use client";
 import { getSession } from "@/app/api/session/getSession";
 import { logoutSession } from "@/app/api/session/logoutSession";
-import { addUser } from "@/app/api/users/addUser";
+// import { addUser } from "@/app/api/users/addUser";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";

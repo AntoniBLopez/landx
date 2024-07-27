@@ -1,4 +1,3 @@
-'use client'
 import { getPosts } from '@/app/api/posts/getPosts'
 import { BackgroundBeams } from '@/components/ui/background-beams'
 
