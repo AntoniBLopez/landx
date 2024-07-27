@@ -8,11 +8,11 @@ import { Button } from "@/components/ui/button";
 import { LoginForm } from "@/types";
 import { useEffect, useState } from "react";
 
-interface Props {
+interface LoginProps {
   formData: LoginForm;
 }
 
-export default function Page({ formData }: Props) {
+export default function Page({ formData }: LoginProps) {
 
   useEffect(() => {
     async function c() {
