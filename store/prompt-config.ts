@@ -2,15 +2,14 @@ import { create } from "zustand";
 import { Api, FormData } from "@/types";
 
 export const initialFormData: FormData = {
-	business__name: "",
-	business__description: "",
-	business__email: "",
-	business__CTA: "",
-	style__primaryColor: "#1e90ff",
-	style__secondaryColor: "#ffffff",
-	style__font: "Arial",
-	style__styleDesign: "Modern",
-	style__fontweight: 400,
+	landing__name: "",
+	landing__description: "",
+	landing__CTA: "",
+	user__email: "",
+	style__colors: ["#1e90ff", "#ffffff"],
+	style__fontFamilies: ["Arial", "Helvetica"],
+	style__landingDesign: "Modern",
+	style__fontWeight: 400,
 	tech__stack: "Vanilla",
 };
 

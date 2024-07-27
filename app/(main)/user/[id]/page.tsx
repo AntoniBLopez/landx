@@ -73,7 +73,7 @@ export default function Page() {
         async function fetchUser(userId: string) {
             try {
                 if(localStorage.getItem('session')) {
-                    let user_ = await getSession(localStorage.getItem('session')!!)
+                    const user_ = await getSession(localStorage.getItem('session')!!)
                     if(user_.sessionInfo === id) {
                         setSelf(true)
                     } else {
@@ -82,9 +82,9 @@ export default function Page() {
                 } else {
                     setSelf(false)
                 }
-                let response = await getUser(userId)
+                const response = await getUser(userId)
                 setUser(response.user)
-                let userPost = await getUserPosts(userId)
+                const userPost = await getUserPosts(userId)
                 setPosts(userPost.info)
             } catch (error) {
                 console.error('Error fetching post:', error)
@@ -105,7 +105,7 @@ export default function Page() {
             <div className='flex flex-col'>
                 <div className='flex-col m-3 w-[30vw] h-max rounded-xl bg-black/10 dark:bg-white/10 p-5'>
                     <h1 className='text-4xl text-center font-extrabold mt-auto'>{user.$id}{isSelf === true ? ' (You)' : null}</h1>
-                    <img src={user.pfp} className='h-36 w-36 rounded-full mx-auto mt-5'></img>
+                    <img src={user.pfp ? user.pfp : "/unknown.png"} className='h-36 w-36 rounded-full mx-auto mt-5'></img>
                 </div>
                 <div className='flex-col m-3 w-[30vw] h-max rounded-xl bg-black/10 dark:bg-white/10 p-5'>
                     <Link target='_blank' href={user.github}>

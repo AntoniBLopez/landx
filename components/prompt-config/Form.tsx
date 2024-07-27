@@ -31,8 +31,8 @@ export function Form({ sectionSelected, onFormChange, formData }: Props) {
 						<span className="text-sm text-gray-600 font-bold">Name</span>
 						<input
 							className="h-[48px] py-2 px-6  rounded-sm"
-							name="business__name"
-							value={formData.business__name}
+							name="landing__name"
+							value={formData.landing__name}
 							onChange={onFormChange}
 							type="text"
 							placeholder="Acme Corporation"
@@ -42,8 +42,8 @@ export function Form({ sectionSelected, onFormChange, formData }: Props) {
 						<span className="text-sm text-gray-600 font-bold">Description</span>
 						<textarea
 							className="h-[115px] py-2 px-6 rounded-sm resize-none"
-							name="business__description"
-							value={formData.business__description}
+							name="landing__description"
+							value={formData.landing__description}
 							onChange={onFormChange}
 							placeholder="Make your vignettes more fun using Acme, the simplest and fastest tool on the market."
 						></textarea>
@@ -52,8 +52,8 @@ export function Form({ sectionSelected, onFormChange, formData }: Props) {
 						<span className="text-sm text-gray-600 font-bold">Email</span>
 						<input
 							className="h-[48px] py-2 px-6  rounded-sm"
-							name="business__email"
-							value={formData.business__email}
+							name="user__email"
+							value={formData.user__email}
 							onChange={onFormChange}
 							type="email"
 							placeholder="example@acme.com"
@@ -65,8 +65,8 @@ export function Form({ sectionSelected, onFormChange, formData }: Props) {
 						</span>
 						<input
 							className="h-[48px] py-2 px-6  rounded-sm"
-							name="business__CTA"
-							value={formData.business__CTA}
+							name="landing__CTA"
+							value={formData.landing__CTA}
 							onChange={onFormChange}
 							type="email"
 							placeholder="Join now!"
@@ -83,8 +83,8 @@ export function Form({ sectionSelected, onFormChange, formData }: Props) {
 							</span>
 							<input
 								className="colorSelector w-10 h-10 p-[2px] rounded-sm hover:cursor-cell bg-transparent"
-								name="style__primaryColor"
-								value={formData.style__primaryColor}
+								name="style__colors"
+								value={formData.style__colors[0]}
 								onChange={onFormChange}
 								type="color"
 								id="color"
@@ -97,7 +97,7 @@ export function Form({ sectionSelected, onFormChange, formData }: Props) {
 							<input
 								className="colorSelector w-10 h-10 p-[2px] bg-transparent hover:cursor-cell"
 								name="style__secondaryColor"
-								value={formData.style__secondaryColor}
+								value={formData.style__colors[1]}
 								onChange={onFormChange}
 								type="color"
 								id="color"
@@ -109,7 +109,7 @@ export function Form({ sectionSelected, onFormChange, formData }: Props) {
 						<select
 							className="w-full h-[48px] py-2 px-6 rounded-sm"
 							name="style__font"
-							value={formData.style__font}
+							value={formData.style__fontFamilies[0]}
 							onChange={onFormChange}
 						>
 							{
@@ -119,17 +119,17 @@ export function Form({ sectionSelected, onFormChange, formData }: Props) {
 							}
 						</select>
 						<span className="text-sm text-gray-600 font-bold">
-							Weight ({formData.style__fontweight})
+							Weight ({formData.style__fontWeight})
 						</span>
-						<input min={100} max={900} step={100} name="style__fontweight" type="range" value={formData.style__fontweight} onChange={onFormChange}></input>
-						<h1 style={{ fontFamily: formData.style__font, fontWeight: formData.style__fontweight }} className="text-center">example</h1>
+						<input min={100} max={900} step={100} name="style__fontweight" type="range" value={formData.style__fontWeight} onChange={onFormChange}></input>
+						<h1 style={{ fontFamily: formData.style__fontFamilies[0], fontWeight: formData.style__fontWeight }} className="text-center">example</h1>
 					</label>
 					<label className="flex flex-col gap-2">
 						<span className="text-sm text-gray-600 font-bold">Page style</span>
 						<select
 							className="w-full h-[48px] py-2 px-6 rounded-sm"
 							name="style__styleDesign"
-							value={formData.style__styleDesign}
+							value={formData.style__landingDesign}
 							onChange={onFormChange}
 						>
 							<option value="modern">Modern</option>

@@ -8,8 +8,12 @@ export async function POST(req: Request) {
 
 	const codeSections: { language: string; code: string }[] = [];
 
+	console.log('codeSections: ', codeSections)
+
 	const lines = text.split("\n");
 	let currentLanguage = "";
+
+	console.log("lines", lines);
 
 	lines.forEach((line) => {
 		if (line.startsWith("```")) {
@@ -27,6 +31,8 @@ export async function POST(req: Request) {
 			}
 		}
 	});
+
+	console.log('currentLanguage: ', currentLanguage)
 
 	// Ruta de la carpeta donde se guardan los archivos
 	const outputDir = path.join(process.cwd(), "public", "generated");
@@ -59,7 +65,10 @@ export async function POST(req: Request) {
 
 		// console.log("fileName", fileName);
 		const filePath = path.join(outputDir, fileName);
+		// index.html
 		return fs.writeFile(filePath, code);
+
+		// language y code
 	});
 
 	await Promise.all(filePromises);

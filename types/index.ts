@@ -10,15 +10,14 @@ export type ImageLoaderProps = {
 };
 
 export interface FormData {
-	business__name: string;
-	business__description: string;
-	business__email: string;
-	business__CTA: string;
-	style__primaryColor: string;
-	style__secondaryColor: string;
-	style__font: string;
-	style__fontweight: number;
-	style__styleDesign: string;
+	landing__name: string;
+	landing__description: string;
+	landing__CTA: string;
+	user__email: string;
+	style__colors: string[];
+	style__fontFamilies: string[];
+	style__fontWeight: number;
+	style__landingDesign: string;
 	tech__stack: string;
 }
 

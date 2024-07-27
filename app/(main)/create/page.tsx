@@ -12,16 +12,16 @@ import { getSession } from "@/app/api/session/getSession";
 export default function Page() {
 	const [generation, setGeneration] = useState("")
 	const [isLoading, setIsLoading] = useState(false)
-	const [input, setInput] = useState("")
+	const [userInput, setUserInput] = useState("")
 	const [aiResponse, setAiResponse] = useState("")
 	const [time, setTime] = useState(true)
 	const promptConfig = usePromptConfigStore((state) => state.promptConfig)
 	const api = usePromptConfigStore((state) => state.api)
 
-	useEffect(()=>{
+	useEffect(() => {
 		async function c() {
 			const result = await getSession(localStorage.getItem('session')!!)
-			if(result.session === false) window.location.assign('/login')
+			if (result.session === false) window.location.assign('/login')
 		}
 		c()
 	}, [])
@@ -32,17 +32,16 @@ export default function Page() {
 		setIsLoading(true)
 
 		const prompt = qualityPrompt({
-			input,
-			businessName: promptConfig.business__name,
-			email: promptConfig.business__email,
-			serviceDescription: promptConfig.business__description,
-			callToActionButtonName: promptConfig.business__CTA,
-			mainColor: promptConfig.style__primaryColor,
-			secondaryColor: promptConfig.style__secondaryColor,
-			font: promptConfig.style__font,
-			stack: promptConfig.tech__stack,
-			foldersTech:
-				"HTML para la estructura, CSS para el estilo, y JavaScript para la interactividad, y si es necesario, usar React.",
+			userInput: userInput,
+			landingName: promptConfig.landing__name,
+			landingDescription: promptConfig.landing__description,
+			email: promptConfig.user__email,
+			callToActionName: promptConfig.landing__CTA,
+			colors: promptConfig.style__colors,
+			fontFamilies: promptConfig.style__fontFamilies,
+			fontWeight: promptConfig.style__fontWeight,
+			landingStyle: promptConfig.style__landingDesign,
+			techStack: promptConfig.tech__stack,
 		});
 
 		await fetch("/api/chat", {
@@ -103,8 +102,8 @@ export default function Page() {
 
 				<PlaceholdersAndVanishInput
 					placeholders={placeholders}
-					onChange={(e) => setInput(e.target.value)}
-					onSubmit={(event) => {
+					onChange={(e: any) => setUserInput(e.target.value)}
+					onSubmit={(event: any) => {
 						if (time) {
 							setTime(false);
 							onSubmit(event);
@@ -117,7 +116,6 @@ export default function Page() {
 				<InputApiKey />
 				<BackgroundBeams className="z-[-2]" />
 			</main>
-			{/* <Sidebar /> */}
 		</>
 	);
 }
