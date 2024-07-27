@@ -9,7 +9,7 @@ export const initialFormData: FormData = {
 	style__primaryColor: "#1e90ff",
 	style__secondaryColor: "#ffffff",
 	style__font: "Arial",
-	style__styleDesingn: "Modern",
+	style__styleDesign: "Modern",
 	tech__stack: "Vanilla",
 };
 

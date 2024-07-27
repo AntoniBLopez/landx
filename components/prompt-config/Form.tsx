@@ -8,17 +8,17 @@ interface Props {
 }
 
 const fonts = [
-	'Arial', 
-	'Verdana', 
-	'Helvetica', 
-	'Times New Roman', 
-	'Courier New', 
-	'Georgia', 
-	'Palatino', 
-	'Garamond', 
-	'Comic Sans MS', 
-	'Trebuchet MS', 
-	'Arial Black', 
+	'Arial',
+	'Verdana',
+	'Helvetica',
+	'Times New Roman',
+	'Courier New',
+	'Georgia',
+	'Palatino',
+	'Garamond',
+	'Comic Sans MS',
+	'Trebuchet MS',
+	'Arial Black',
 	'Impact'
 ]
 
@@ -113,22 +113,22 @@ export function Form({ sectionSelected, onFormChange, formData }: Props) {
 							onChange={onFormChange}
 						>
 							{
-								fonts.map((font) => 
-									<option style={{fontFamily: font}} value={font}>{font}</option>
+								fonts.map((font, index) =>
+									<option key={index} style={{ fontFamily: font }} value={font}>{font}</option>
 								)
 							}
 						</select>
 						<span className="text-sm text-gray-600 font-bold">
-								Weight ({formData.style__fontweight})
-							</span>
+							Weight ({formData.style__fontweight})
+						</span>
 						<input min={100} max={900} step={100} name="style__fontweight" type="range" value={formData.style__fontweight} onChange={onFormChange}></input>
-						<h1 style={{fontFamily: formData.style__font, fontWeight: formData.style__fontweight}} className="text-center">example</h1>
+						<h1 style={{ fontFamily: formData.style__font, fontWeight: formData.style__fontweight }} className="text-center">example</h1>
 					</label>
 					<label className="flex flex-col gap-2">
 						<span className="text-sm text-gray-600 font-bold">Page style</span>
 						<select
 							className="w-full h-[48px] py-2 px-6 rounded-sm"
-							name="style__styleDesingn"
+							name="style__styleDesign"
 							value={formData.style__styleDesign}
 							onChange={onFormChange}
 						>
