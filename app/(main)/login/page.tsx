@@ -8,11 +8,7 @@ import { Button } from "@/components/ui/button";
 import { LoginForm } from "@/types";
 import { useEffect, useState } from "react";
 
-interface LoginProps {
-  formData: LoginForm;
-}
-
-export default function Page({ formData }: LoginProps) {
+export default function Page({ formData }: { formData: LoginForm}) {
 
   useEffect(() => {
     async function c() {
