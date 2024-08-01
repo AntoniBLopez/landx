@@ -52,6 +52,14 @@ const people = [
 		image: "https://avatars.githubusercontent.com/u/70169625?v=4",
 		url: "https://github.com/oardilac",
 	},
+	{
+		id: 8,
+		name: "Manuel Rodrigo",
+		designation: "Full Stack Developer",
+		image: "https://avatars.githubusercontent.com/u/139655790?v=4",
+		url: "https://github.com/ManuelRBo",
+	},
+
 ];
 
 export const Footer = () => {
