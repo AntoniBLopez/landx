@@ -1,4 +1,5 @@
-# ![Alt text](/public/favicon_md4.png "a title") Welcome to LandX README
+# ![Alt text](/public/landx-banner.png "a title")
+# ![Alt text](/public/favicon_md4.png "a title") Welcome to LandX
 
 ### Storytelling: 📖
 This project started from scratch on 07.10.2024, the day after Midu announced the Vercel Hackathon on Twitch. We have gathered 8 followers of Midu, where through Telegram we made contact and we got together to carry out this wonderful project.
